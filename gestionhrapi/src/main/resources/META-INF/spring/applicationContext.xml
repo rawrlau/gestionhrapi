@@ -54,10 +54,13 @@
         <context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
     </context:component-scan>
     
+<<<<<<< HEAD
     <!-- Encontrar la clase sin @Component
     <bean class="com.softtek.gestionhrapi.Maestros" id="maestros1"/>
     <bean class="com.softtek.gestionhrapi.Maestros" id="maestros2"/>
      -->
+=======
+>>>>>>> 5f0c36ca10bd28b39f419ef5cea21f3b88927a18
     
     
     
