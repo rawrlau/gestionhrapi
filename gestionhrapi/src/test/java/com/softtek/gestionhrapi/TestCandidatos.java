@@ -34,41 +34,41 @@ public class TestCandidatos {
 		Assert.assertNotNull(contador);
 	}
 
-	@Test
+	//@Test
 	public void testAltaCandidato() {
 
 		long antes = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos ANTES: " + antes);
 		
-		Candidatos candidato = new Candidatos();
+		Candidatos candidatoAlta = new Candidatos();
 
-		candidato.setSolicitudeses(new HashSet<Solicitudes>());
-		candidato.setTecnologiass1(new HashSet<Tecnologias>());
-		candidato.setContactoss(new HashSet<Contactos>());
-		candidato.setIdiomasCandidatoes(new HashSet<IdiomasCandidato>());
-		candidato.setNombre("Alejandro");
-		candidato.setApellidos("Grillo");
-		candidato.setProvincia("Madrid");
-		candidato.setPerfil("Analista");
-		candidato.setPosicion("Senior");
-		candidato.setExperiencia("Poca");
-		candidato.setDispViajar("S");
-		candidato.setDispResidencia("N");
-		candidato.setDispIncorporacion("S");
-		candidato.setExpectContractual("Ser el boss");
-		candidato.setExpectEconomica(new BigDecimal(99999999));
-		candidato.setFechaEntrevista(new Date());
-		candidato.setFeedbackSourcing("FS");
-		candidato.setFeedbackTecnico("FT");
-		candidato.setTecnicoSeleccion("TS");
-		candidato.setReferenciado("No");
-		candidato.setEstado("Sólido");
-		candidato.setCvSofttek("Muy bien");
-		candidato.setCvPersonal("No tengo");
-		candidato.setFechaContacto(new Date());
-		candidato.setFechaActualizado(new Date());		
+		candidatoAlta.setSolicitudeses(new HashSet<Solicitudes>());
+		candidatoAlta.setTecnologiass1(new HashSet<Tecnologias>());
+		candidatoAlta.setContactoss(new HashSet<Contactos>());
+		candidatoAlta.setIdiomasCandidatoes(new HashSet<IdiomasCandidato>());
+		candidatoAlta.setNombre("Alejandro");
+		candidatoAlta.setApellidos("Grillo");
+		candidatoAlta.setProvincia("Madrid");
+		candidatoAlta.setPerfil("Analista");
+		candidatoAlta.setPosicion("Senior");
+		candidatoAlta.setExperiencia("Poca");
+		candidatoAlta.setDispViajar("S");
+		candidatoAlta.setDispResidencia("N");
+		candidatoAlta.setDispIncorporacion("S");
+		candidatoAlta.setExpectContractual("Ser el boss");
+		candidatoAlta.setExpectEconomica(new BigDecimal(99999999));
+		candidatoAlta.setFechaEntrevista(new Date());
+		candidatoAlta.setFeedbackSourcing("FS");
+		candidatoAlta.setFeedbackTecnico("FT");
+		candidatoAlta.setTecnicoSeleccion("TS");
+		candidatoAlta.setReferenciado("No");
+		candidatoAlta.setEstado("Sólido");
+		candidatoAlta.setCvSofttek("Muy bien");
+		candidatoAlta.setCvPersonal("No tengo");
+		candidatoAlta.setFechaContacto(new Date());
+		candidatoAlta.setFechaActualizado(new Date());		
 
-		int result = this.candidato.altaCandidato(candidato);
+		int result = candidato.altaCandidato(candidatoAlta);
 		System.out.println("Insertado: " + result);
 		
 		long despues = Candidatos.countCandidatoses();
@@ -77,13 +77,13 @@ public class TestCandidatos {
 		Assert.assertEquals(antes + 1, despues);
 	}
 
-	@Test
+	//@Test
 	public void testBajaCandidato() {
 
 		long antes = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos ANTES: " + antes);
 
-		int result = candidato.bajaCandidato(new BigDecimal(17));
+		int result = candidato.bajaCandidato(new BigDecimal(18));
 
 		System.out.println("DADO DE BAJA: " + result);
 
@@ -96,38 +96,21 @@ public class TestCandidatos {
 	//@Test
 	public void testModificacionCandidato() {
 
-		Candidatos candidatoMod = candidato.consultaCandidato(new BigDecimal(354));
+		Candidatos candidatoMod = candidato.consultaCandidato(new BigDecimal(354));	
+		candidatoMod.setApellidos("JUANCHO PANCHO");
 
-		Set<Solicitudes> solicitudes = candidatoMod.getSolicitudeses();
-		Set<Tecnologias> tecnologiass1 = candidatoMod.getTecnologiass1();
-		Set<Contactos> contactoss = candidatoMod.getContactoss();
-		Set<IdiomasCandidato> idiomasCandidatoes = candidatoMod.getIdiomasCandidatoes();
-		String nombre = "Ronaldinho";
-		String apellido = candidatoMod.getApellidos();
-		String provincia = candidatoMod.getProvincia();
-		String perfil = candidatoMod.getPerfil();
-		String posicion = candidatoMod.getPosicion();
-		String experiencia = candidatoMod.getExperiencia();
-		String dispViajar = candidatoMod.getDispViajar();
-		String dispResidencia = candidatoMod.getDispResidencia();
-		String dispIncorporacion = candidatoMod.getDispIncorporacion();
-		String expContractual = candidatoMod.getExpectContractual();
-		BigDecimal expEconomica = candidatoMod.getExpectEconomica();
-		Date fecha_entrevista = candidatoMod.getFechaEntrevista();
-		String feedbackSourcing = candidatoMod.getFeedbackSourcing();
-		String feedbackTecnico = candidatoMod.getFeedbackTecnico();
-		String tecnicoSeleccion = candidatoMod.getTecnicoSeleccion();
-		String referenciado = candidatoMod.getReferenciado();
-		String estado = candidatoMod.getEstado();
-		String cvSofttek = candidatoMod.getCvSofttek();
-		String cvPersonal = candidatoMod.getCvPersonal();
-		Date fechaContacto = candidatoMod.getFechaContacto();
-		Date fechaActualizado = candidatoMod.getFechaActualizado();
+		int result = candidato.modificacionCandidato(candidatoMod);
+		System.out.println("Modificado: " + result);
 
-		//int result = this.candidato.modificacionCandidato(candidato);
+		Assert.assertEquals(candidatoMod.getApellidos(), "JUANCHO PANCHO");
+	}
 
-		//System.out.println("Modificado: " + result);
+	@Test
+	public void testConsultaCandidato() {
 
-		Assert.assertEquals(candidatoMod.getNombre(), "Ronaldinho");
+		Candidatos candidatoCon = candidato.consultaCandidato(new BigDecimal(19));
+		System.out.println(candidatoCon.toString());
+
+		Assert.assertNotNull(candidatoCon);
 	}
 }

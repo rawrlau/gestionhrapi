@@ -51,7 +51,7 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 	@Override
 	public int modificacionCandidato(Candidatos candidato) {
 		try {
-			candidato.flush();
+			candidato.merge();
 
 			LOG.info("Modificación de candidato realizada con éxito.");
 
