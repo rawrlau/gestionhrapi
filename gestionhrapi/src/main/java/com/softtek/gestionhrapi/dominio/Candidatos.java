@@ -20,8 +20,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 public class Candidatos {
 	
     @Id
-    //@SequenceGenerator(name="sqcCandidato", sequenceName="SEQ_CANDIDATOS", allocationSize=1)
-    //@GeneratedValue(strategy = GenerationType.AUTO, generator="sqcCandidato")
+    @SequenceGenerator(name="SEQ_CANDIDATOS", sequenceName="SEQ_CANDIDATOS", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="SEQ_CANDIDATOS")
     @Column(name = "ID_CANDIDATO")
     private BigDecimal idCandidato;
 }

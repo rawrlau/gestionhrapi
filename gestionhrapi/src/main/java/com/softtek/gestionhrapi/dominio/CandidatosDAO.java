@@ -32,5 +32,5 @@ public interface CandidatosDAO {
 			String cvSofttek, String cvPersonal, Date fechaContacto,
 			Date fechaActualizado);
 
-	public int consultaCandidato(BigDecimal idCandidato);
+	public Candidatos consultaCandidato(BigDecimal idCandidato);
 }

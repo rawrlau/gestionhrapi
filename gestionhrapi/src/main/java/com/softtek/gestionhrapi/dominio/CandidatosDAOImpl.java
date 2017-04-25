@@ -7,8 +7,13 @@ import java.util.Set;
 import org.jfree.util.Log;
 import org.springframework.stereotype.Component;
 
+import com.bbva.jee.arq.spring.core.log.I18nLog;
+import com.bbva.jee.arq.spring.core.log.I18nLogFactory;
+
 @Component
 public class CandidatosDAOImpl implements CandidatosDAO {
+	
+	private I18nLog LOG = I18nLogFactory.getLogI18n(Candidatos.class);
 
 	@Override
 	public int altaCandidato(Set<Solicitudes> solicitudes,
@@ -24,7 +29,6 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 			Date fechaActualizado) {
 		try {
 			Candidatos candidato = new Candidatos();
-			candidato.setIdCandidato(new BigDecimal(2));
 			candidato.setSolicitudeses(solicitudes);
 			candidato.setTecnologiass1(tecnologiass1);
 			candidato.setContactoss(contactoss);
@@ -53,13 +57,12 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 
 			System.out.println(candidato.toString());			
 
-			//candidato.entityManager.getTransaction().begin();
 			candidato.persist();
-			//candidato.entityManager.getTransaction().commit();
-			Log.info("Alta de candidato realizada con éxito.");
+			LOG.info("Alta de candidato realizada con éxito.");
 
 		} catch (Exception e) {
-			Log.error("No ha sido posible realizar el alta del candidato.");
+			LOG.error("No ha sido posible realizar el alta del candidato: " + e.getMessage());
+			e.printStackTrace();
 			return 0; // Error
 		}
 		return 1; // OK
@@ -71,9 +74,9 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 		candidato.setIdCandidato(idCandidato);
 		try {
 			candidato.remove();
-			Log.info("Baja de candidato realizada con éxito.");
+			LOG.info("Baja de candidato realizada con éxito.");
 		} catch (Exception e) {
-			Log.error("No ha sido posible realizar la baja del candidato.");
+			LOG.error("No ha sido posible realizar la baja del candidato.");
 			return 0; // Error
 		}
 		return 1; // OK
@@ -119,32 +122,35 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 			candidato.setCvPersonal(cvPersonal);
 			candidato.setFechaContacto(fechaContacto);
 			candidato.setFechaActualizado(fechaActualizado);
-
-			//candidato.entityManager.getTransaction().begin();
+			
 			candidato.flush();
-			//candidato.entityManager.getTransaction().commit();
 
-			Log.info("Modificación de candidato realizada con éxito.");
+			LOG.info("Modificación de candidato realizada con éxito.");
 
 		} catch (Exception e) {
-			Log.error("No ha sido posible realizar la modificación del candidato.");
+			LOG.error("No ha sido posible realizar la modificación del candidato.");
 			return 0; // Error
 		}
 		return 1; // OK
 	}
 
 	@Override
-	public int consultaCandidato(BigDecimal idCandidato) {
+	public Candidatos consultaCandidato(BigDecimal idCandidato) {
+		
+		Candidatos candidato = Candidatos.findCandidatos(idCandidato);
+		
 		try {
-			if (Candidatos.findCandidatos(idCandidato) == null)
-				Log.warn("Candidato no existente");
-			else
-				Log.info("Candidato encontrado");
-			
+			if (candidato == null)
+				LOG.warn("Candidato no existente");
+			else {
+				LOG.info("Candidato encontrado");
+				return candidato; // OK
+			}			
 		} catch (Exception e) {
-			Log.error("Error al consultar el candidato");
-			return 0; // Error
+			LOG.error("Error al consultar el candidato: " + e.getMessage());
+			e.printStackTrace();
 		}
-		return 1; // OK		
+		
+		return null; // Error
 	}
 }

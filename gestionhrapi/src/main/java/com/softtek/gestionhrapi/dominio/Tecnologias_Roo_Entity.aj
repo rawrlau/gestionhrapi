@@ -6,12 +6,8 @@ package com.softtek.gestionhrapi.dominio;
 import com.softtek.gestionhrapi.dominio.Tecnologias;
 import java.math.BigDecimal;
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,19 +20,6 @@ privileged aspect Tecnologias_Roo_Entity {
     
     @PersistenceContext
     transient EntityManager Tecnologias.entityManager;
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_TECNOLOGIA")
-    private BigDecimal Tecnologias.idTecnologia;
-    
-    public BigDecimal Tecnologias.getIdTecnologia() {
-        return this.idTecnologia;
-    }
-    
-    public void Tecnologias.setIdTecnologia(BigDecimal id) {
-        this.idTecnologia = id;
-    }
     
     @Transactional
     public void Tecnologias.persist() {
