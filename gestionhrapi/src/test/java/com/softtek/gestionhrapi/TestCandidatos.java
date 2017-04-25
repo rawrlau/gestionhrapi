@@ -83,7 +83,7 @@ public class TestCandidatos {
 		long antes = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos ANTES: " + antes);
 
-		int result = candidato.bajaCandidato(new BigDecimal(17));
+		int result = candidato.bajaCandidato(new BigDecimal(20));
 
 		System.out.println("DADO DE BAJA: " + result);
 
