@@ -25,13 +25,13 @@ public class TestRemove {
 	/**
 	 * Se comprueba que la baja de candidato ha sido realizada.
 	 */
-	//@Test
+	@Test
 	public void testBajaCandidatoOk() throws GestionHrException {
 
 		long antes = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos ANTES: " + antes);
 		
-		candidatoDAO.deleteCandidato(new BigDecimal(33));
+		candidatoDAO.deleteCandidato(new BigDecimal(46));
 
 		long despues = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos DESPUÉS: " + despues);
@@ -45,8 +45,7 @@ public class TestRemove {
 	 * @throws GestionHrException
 	 */
 	@Test(expected = GestionHrException.class)
-	public void testBajaCandidatoIdNoExistente() throws GestionHrException {
-		
+	public void testBajaCandidatoIdNoExistente() throws GestionHrException {		
 		Candidatos candidato = candidatoDAO.readCandidato(null);
 		candidatoDAO.deleteCandidato(candidato.getIdCandidato());
 	}

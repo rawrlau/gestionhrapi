@@ -2,7 +2,6 @@ package com.softtek.gestionhrapi.implementacion;
 
 import java.math.BigDecimal;
 
-
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;

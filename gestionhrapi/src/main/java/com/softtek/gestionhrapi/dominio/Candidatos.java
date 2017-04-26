@@ -16,7 +16,6 @@ import javax.persistence.SequenceGenerator;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.antlr.grammar.v3.ANTLRv3Parser.throwsSpec_return;
 import org.springframework.roo.addon.dbre.RooDbManaged;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
