@@ -1,4 +1,4 @@
-package com.softtek.gestionhrapi;
+package com.softtek.gestionhrapi.cantidatos;
 
 import java.math.BigDecimal;
 
@@ -16,20 +16,20 @@ import com.softtek.gestionhrapi.implementacion.CandidatosDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/META-INF/spring/applicationContext*.xml" })
-public class TestCandidatosModificacion {
+public class TestRead {
 
 	@Autowired
-	CandidatosDAO candidato;
+	CandidatosDAO candidatoDAO;
 
 	@Test
-	public void testModificacionCandidato() throws GestionHrException {
-
-		Candidatos candidatoMod = candidato.readCandidato(new BigDecimal(35));
-		candidatoMod.setApellidos("El Gris");
-
-		candidato.updateCandidato(candidatoMod);
-
-		Assert.assertEquals(candidatoMod.getApellidos(), "El Gris");
+	public void testConsultaCandidatoOk() throws GestionHrException {
+		Candidatos candidato = candidatoDAO.readCandidato(new BigDecimal(19));
+		System.out.println(candidato.toString());
+		Assert.assertNotNull(candidato);
 	}
 
+	@Test(expected = GestionHrException.class)
+	public void testConsultaCandidatoIdNull() throws GestionHrException {
+		Candidatos candidato = candidatoDAO.readCandidato(null);
+	}
 }

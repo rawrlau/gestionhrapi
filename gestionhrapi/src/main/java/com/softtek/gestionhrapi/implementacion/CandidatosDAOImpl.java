@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 
+import org.antlr.grammar.v3.ANTLRv3Parser.throwsSpec_return;
 import org.springframework.stereotype.Component;
 
 import com.bbva.jee.arq.spring.core.log.I18nLog;
@@ -26,7 +27,6 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 	public void createCandidato(Candidatos candidato) throws GestionHrException {
 		if (validateCandidato(candidato)) {
 			candidato.persist();
-		
 			LOG.info("Alta realizada con éxito.");
 		}
 	}
@@ -120,7 +120,10 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 
 		if (nuloVar.isEmpty())
 			return true;
-		else
+		else {
 			throw new GestionHrException(nuloVar + " " + nuloMensaje);
+		}
+
 	}
+
 }

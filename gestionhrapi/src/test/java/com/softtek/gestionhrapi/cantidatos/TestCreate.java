@@ -1,6 +1,8 @@
-package com.softtek.gestionhrapi;
+package com.softtek.gestionhrapi.cantidatos;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -11,15 +13,18 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.softtek.exception.GestionHrException;
 import com.softtek.gestionhrapi.dominio.Candidatos;
+import com.softtek.gestionhrapi.dominio.Contactos;
+import com.softtek.gestionhrapi.dominio.IdiomasCandidato;
+import com.softtek.gestionhrapi.dominio.Solicitudes;
+import com.softtek.gestionhrapi.dominio.Tecnologias;
 import com.softtek.gestionhrapi.implementacion.CandidatosDAO;
-
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/META-INF/spring/applicationContext*.xml" })
-public class TestCandidatosAlta {
+public class TestCreate {
 
 	@Autowired
-	CandidatosDAO candidato;
+	CandidatosDAO candidatoDAO;
 
 	/**
 	 * Se comprueba que el alta de candidato ha sido realizada.
@@ -31,7 +36,7 @@ public class TestCandidatosAlta {
 		System.out.println("Número de candidatos ANTES: " + antes);
 
 		Candidatos candidatoAlta = candidatoInit();
-		candidato.createCandidato(candidatoAlta);
+		candidatoDAO.createCandidato(candidatoAlta);
 
 		long despues = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos DESPUÉS: " + despues);
@@ -46,7 +51,7 @@ public class TestCandidatosAlta {
 	 */
 	@Test(expected = GestionHrException.class)
 	public void testAltaCandidatoNull() throws GestionHrException {
-		candidato.createCandidato(null);
+		candidatoDAO.createCandidato(null);
 	}
 
 	/**
@@ -58,7 +63,7 @@ public class TestCandidatosAlta {
 	public void testAltaCandidatoNombreNull() throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setNombre(null);
-		candidato.createCandidato(candidatoAlta);
+		candidatoDAO.createCandidato(candidatoAlta);
 	}
 
 	/**
@@ -70,7 +75,7 @@ public class TestCandidatosAlta {
 	public void testAltaCandidatoProvinciaNull() throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setProvincia(null);
-		candidato.createCandidato(candidatoAlta);
+		candidatoDAO.createCandidato(candidatoAlta);
 	}
 
 	/**
@@ -82,7 +87,7 @@ public class TestCandidatosAlta {
 	public void testAltaCandidatoPerfilNull() throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setPerfil(null);
-		candidato.createCandidato(candidatoAlta);
+		candidatoDAO.createCandidato(candidatoAlta);
 	}
 
 	/**
@@ -95,7 +100,7 @@ public class TestCandidatosAlta {
 			throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setExpectContractual(null);
-		candidato.createCandidato(candidatoAlta);
+		candidatoDAO.createCandidato(candidatoAlta);
 	}
 
 	/**
@@ -108,7 +113,7 @@ public class TestCandidatosAlta {
 			throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setExpectEconomica(null);
-		candidato.createCandidato(candidatoAlta);
+		candidatoDAO.createCandidato(candidatoAlta);
 	}
 
 	/**
@@ -121,7 +126,7 @@ public class TestCandidatosAlta {
 			throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setFeedbackSourcing(null);
-		candidato.createCandidato(candidatoAlta);
+		candidatoDAO.createCandidato(candidatoAlta);
 	}
 
 	/**
@@ -134,7 +139,7 @@ public class TestCandidatosAlta {
 			throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setTecnicoSeleccion(null);
-		candidato.createCandidato(candidatoAlta);
+		candidatoDAO.createCandidato(candidatoAlta);
 	}
 
 	/**
@@ -149,7 +154,7 @@ public class TestCandidatosAlta {
 		candidatoAlta.setNombre(null);
 		candidatoAlta.setPerfil(null);
 		candidatoAlta.setFeedbackSourcing(null);
-		candidato.createCandidato(candidatoAlta);
+		candidatoDAO.createCandidato(candidatoAlta);
 	}
 
 	/**

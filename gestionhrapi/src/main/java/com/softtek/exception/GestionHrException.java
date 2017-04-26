@@ -20,4 +20,5 @@ public class GestionHrException extends Exception {
 		Log.error(message);
 		printStackTrace();
 	}
+
 }

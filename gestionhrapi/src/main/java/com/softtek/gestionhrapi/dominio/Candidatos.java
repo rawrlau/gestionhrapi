@@ -29,7 +29,6 @@ import org.springframework.roo.addon.tostring.RooToString;
 @XmlRootElement(name="candidatos" , namespace="candidatos")
 @XmlType(name="candidatos" , namespace="candidatos")
 public class Candidatos {
-	
 
 	@Id
 	@SequenceGenerator(name = "SEQ_CANDIDATOS", sequenceName = "SEQ_CANDIDATOS", allocationSize = 1)
@@ -50,4 +49,7 @@ public class Candidatos {
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idCandidato")
 	private Set<IdiomasCandidato> idiomasCandidatoes;
+
 }
+
+

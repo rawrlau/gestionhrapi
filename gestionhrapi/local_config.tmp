@@ -1,5 +1,9 @@
 #
+<<<<<<< HEAD
 #Wed Apr 26 16:55:08 CEST 2017
+=======
+#Wed Apr 26 16:44:30 CEST 2017
+>>>>>>> 85f77a24cdb4945b5487f4b10b703c0daf7f4c4b
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.GRABACION=false
 arqspring.mock.mockescritorio.contexto.puesto.info.puestoFisicoEscritorio=
 servicioTransacciones.configuracion.protocolo.elara.puesto=0
