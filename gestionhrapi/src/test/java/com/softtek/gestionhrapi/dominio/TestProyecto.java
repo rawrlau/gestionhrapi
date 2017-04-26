@@ -1,15 +1,19 @@
 package com.softtek.gestionhrapi.dominio;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
+
 import junit.framework.Assert;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import com.bbva.jee.arq.spring.core.log.I18nLog;
 import com.bbva.jee.arq.spring.core.log.I18nLogFactory;
 import com.softtek.gestionhrapi.exception.GestionhrException;
@@ -41,6 +45,8 @@ public class TestProyecto {
 	
 	@Autowired
 	SolicitudesInterfaz solicitudDao;
+	
+	
 	
 	@Test
 	public void testAltaSolicitudesCompleta() throws GestionhrException {
@@ -79,12 +85,16 @@ public class TestProyecto {
 	@Test
 	public void testBajaSolicitudes() throws GestionhrException {
 		
+		List<Solicitudes> lista = Solicitudes.findAllSolicitudeses();
+		Solicitudes listaSolicitudes = lista.get(lista.size()-1);
+		int identificador = listaSolicitudes.getIdSolicitud().intValue();
+		
 		LOG.info("Se eliminan las solicitudes");
 		boolean resultado = false;
 		long numAntesBaja = solicitudDao.countSolicitudes();
 		
 		try{
-		resultado = solicitudDao.eliminarSolicitud(new BigDecimal(360));
+		resultado = solicitudDao.eliminarSolicitud(new BigDecimal(identificador));
 		LOG.debug("Solicitud dada de baja");
 		}catch(GestionhrException e) {
 			LOG.error(e.getMessage());
@@ -100,8 +110,12 @@ public class TestProyecto {
 	@Test
 	public void testModificacionSolicitudes() throws GestionhrException {
 		
+			List<Solicitudes> lista = Solicitudes.findAllSolicitudeses();
+			Solicitudes listaSolicitudes = lista.get(lista.size()-1);
+			int identificador = listaSolicitudes.getIdSolicitud().intValue();
+		
 			LOG.info("Se modifican las solicitudes");
-			Solicitudes solicitud = Solicitudes.findSolicitudes(new BigDecimal(370));
+			Solicitudes solicitud = Solicitudes.findSolicitudes(new BigDecimal(identificador));
 			solicitud.setNombre("Modificacion");
 			
 			try{
@@ -118,8 +132,12 @@ public class TestProyecto {
 	@Test
 	public void testGetSolicitudes() {
 		
+		List<Solicitudes> lista = Solicitudes.findAllSolicitudeses();
+		Solicitudes listaSolicitudes = lista.get(lista.size()-1);
+		int identificador = listaSolicitudes.getIdSolicitud().intValue();
+		
 		LOG.info("Se consultan las solicitudes");
-		Solicitudes solicitud = Solicitudes.findSolicitudes(new BigDecimal(350));
+		Solicitudes solicitud = Solicitudes.findSolicitudes(new BigDecimal(identificador));
         Assert.assertNotNull(solicitud);
         //Assert.assertTrue(result.getSimbolo().equals(SIMBOLO));
 		
