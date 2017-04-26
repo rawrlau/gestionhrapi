@@ -13,7 +13,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
+import org.antlr.grammar.v3.ANTLRv3Parser.throwsSpec_return;
 import org.springframework.roo.addon.dbre.RooDbManaged;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -23,7 +26,10 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooEntity(versionField = "", table = "CANDIDATOS", schema = "FORMACION")
 @RooDbManaged(automaticallyDelete = true)
+@XmlRootElement(name="candidatos" , namespace="candidatos")
+@XmlType(name="candidatos" , namespace="candidatos")
 public class Candidatos {
+	
 
 	@Id
 	@SequenceGenerator(name = "SEQ_CANDIDATOS", sequenceName = "SEQ_CANDIDATOS", allocationSize = 1)

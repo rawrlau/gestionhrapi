@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.softtek.exception.GestionHrException;
 import com.softtek.gestionhrapi.dominio.Candidatos;
-import com.softtek.gestionhrapi.dominio.CandidatosDAO;
+import com.softtek.gestionhrapi.implementacion.CandidatosDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/META-INF/spring/applicationContext*.xml" })
