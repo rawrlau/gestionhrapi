@@ -25,19 +25,13 @@ public class TestCandidatosBaja {
 	/**
 	 * Se comprueba que la baja de candidato ha sido realizada.
 	 */
-	@Test
+	//@Test
 	public void testBajaCandidatoOk() throws GestionHrException {
 
 		long antes = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos ANTES: " + antes);
 		
-
-		List<Candidatos> lista = Candidatos.findAllCandidatoses();
-		for (Candidatos candidato : lista) {
-			System.out.println(candidato.toString());
-		}
-		
-		candidato.deleteCandidato(new BigDecimal(22));
+		candidato.deleteCandidato(new BigDecimal(33));
 
 		long despues = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos DESPUÉS: " + despues);
@@ -53,7 +47,7 @@ public class TestCandidatosBaja {
 	@Test(expected = GestionHrException.class)
 	public void testBajaCandidatoIdNoExistente() throws GestionHrException {
 		
-		Candidatos candidato = this.candidato.readCandidato(new BigDecimal(99999));
+		Candidatos candidato = this.candidato.readCandidato(null);
 		this.candidato.deleteCandidato(candidato.getIdCandidato());
 	}
 	

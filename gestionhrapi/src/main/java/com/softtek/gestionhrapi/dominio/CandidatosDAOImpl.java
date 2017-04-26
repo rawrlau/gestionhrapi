@@ -36,7 +36,6 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 		Candidatos candidato = null;
 		if (validateIdCandidato(idCandidato)) {
 			candidato = Candidatos.findCandidatos(idCandidato);
-			candidato = Candidatos.findCandidatos(idCandidato);
 			LOG.info("Candidato encontrado: " + candidato.toString());
 		}
 		return candidato;
@@ -75,12 +74,9 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 	private boolean validateIdCandidato(BigDecimal idCandidato)
 			throws GestionHrException {
 		List<Candidatos> lista = Candidatos.findAllCandidatoses();
-		for (Candidatos candidato : lista) {
-			System.out.println(candidato.getIdCandidato() + ": " + idCandidato);
-			if (candidato.getIdCandidato() == idCandidato) {
+		for (Candidatos candidato : lista)
+			if (candidato.getIdCandidato().equals(idCandidato))
 				return true;
-			}
-		}
 		throw new GestionHrException(
 				"La ID CANDIDATO no existe en la base de datos.");
 	}
@@ -102,8 +98,6 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 
 		if (candidato == null)
 			nuloVar = "El CANDIDATO";
-		else if (candidato.getIdCandidato() == null)
-			nuloVar = "ID CANDIDATO";
 		else if (candidato.getNombre() == null)
 			nuloVar = "NOMBRE";
 		else if (candidato.getProvincia() == null)
