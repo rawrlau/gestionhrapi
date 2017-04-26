@@ -1,5 +1,5 @@
 #
-#Wed Apr 19 13:37:40 CEST 2017
+#Wed Apr 26 16:35:36 CEST 2017
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.GRABACION=false
 arqspring.mock.mockescritorio.contexto.puesto.info.puestoFisicoEscritorio=
 servicioTransacciones.configuracion.protocolo.elara.puesto=0
@@ -23,7 +23,7 @@ servicioTransacciones.configuracion.protocolo.ps9.usuarioMayusculas=false
 com.bbva.jee.arq.spring.core.aplicacion.canal=web
 arqspring.mock.mockescritorio.contexto.datosTecnicos.UUAARemitente=
 VAR.CATEGORY.COM.SOFTTEK.GESTIONHRAPI=TRACE,LOGFILE2,STDOUT
-VAR.CATEGORY.COM=DEBUG,LOGFILE,STDOUT
+VAR.CATEGORY.COM=DEBUG,LOGFILE,STDOUT,INFO,LOGFILE,STDOUT
 VAR.APPENDER.AUDITORIA-DIARIO-ERRORES.FILE=/W\:/Desarrollo/gehr/online/multipais/web/logs/gehr_gestionhrapi_01_diario_errores${sys\:cloneId}.txt
 arqspring.mock.proxy.activado=false
 servicioTransacciones.configuracion.transporte.config_transporte_mq_altamira.puerto=1414
@@ -72,6 +72,7 @@ VAR.MOCK.PROXY.USER=
 servicioTransacciones.configuracion.protocolo.ps9.terminales.backend_ejemplo=K00Z(C%ZR,C%ZS,C%ZT,C%ZU,C%ZV,C%ZW,C%ZX,C%ZY)
 VAR.ARQSPRING.SEGURIDAD.MODOFICHERO.UUAA=qzyw
 com.bbva.jee.arq.spring.core.cache.distribuida.name=
+>>>>>>>=5f0c36ca10bd28b39f419ef5cea21f3b88927a18
 arqspring.mock.componente.seguridad=false
 arqspring.mock.mockescritorio.contexto.perfil.oficinaOperativa=1128
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_MQ.FORMATOMENSAJE=IMS
@@ -79,7 +80,7 @@ VAR.APPENDER.AUDITORIA-DIARIO-OPERACIONES.FILE=/W\:/Desarrollo/gehr/online/multi
 arqspring.mock.componente.escritorio.cadenaJson=
 VAR.CACHE.DISTRIBUIDA.TIMEOUT=2000
 arqspring.contexto.control.tareas.activo=false
-database.username=
+database.username=formacion
 servicioTransacciones.configuracion.protocolo.config_otma_pg_qp02.tipo=OTMA_PG
 servicioTransacciones.configuracion.transporte.config_transporte_mq.manager=QMDES002
 VAR.WSCLIENT.URL.XXX=null
@@ -145,12 +146,13 @@ VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_MQ_LATAM.TI
 servicioTransacciones.configuracion.transporte.config_transporte_mq.colaRespuestas=DYD.IMS.QZXY.QWR001
 servicioTransacciones.configuracion.transporte.config_transporte_mq_altamira.colaRespuestas=DYD.PO.ARQT.TO.WIN.QMDDW036.QSD00
 VAR.AUDITORIA.REGISTRADOR.DIARIO.ERRORES.ACTIVADO=true
+<<<<<<<=HEAD
 VAR.ARQSPRING.SERVICIOGPO.HTTPCLIENT.URL.SERVICIOGPODAOREMOTO=http\://localhost\:8080/qzyw_mult_web_gpoweb_01/remoting/
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_ALTAMIRA.MANAGER=QMDDW036
 com.bbva.jee.arq.spring.core.auditoria.registrador.operacion.longitudMaximaDatoAuditable=10000
 com.bbva.jee.arq.spring.core.aplicacion.paquetebase.modulo=com.softtek.gestionhrapi
 ocr.ruta.salida=W\:/Desarrollo/ocr/salida/
-VAR.APPENDER.LOGFILE2.FILE=/W\:/Desarrollo/gehr/online/multipais/web/logs/maestros__01.log
+VAR.APPENDER.LOGFILE2.FILE=/W\:/Desarrollo/gehr/online/multipais/web/logs/solicitudes__01.log
 servicioTransacciones.configuracion.transporte.config_transporte_mq.formatoMensaje=IMS
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_MQ_LATAM.MANAGER=QMMTESC1
 servicioTransacciones.configuracion.protocolo.config_perfilado.cabecera=QP03
@@ -165,7 +167,7 @@ arqspring.mock.mockescritorio.contexto.transacciones.versionAutorizacion=
 arqspring.mock.mockescritorio.contexto.datosTecnicos.http.filtro=*
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_MQ.COLARESPUESTAS=DYD.IMS.QZXY.QWR001
 com.bbva.jee.arq.spring.core.aplicacion.version.modulo=01
-database.url=jdbc\:oracle\:thin\:@localhost\:1521
+database.url=jdbc\:oracle\:thin\:@172.16.11.75/XE
 servicioTransacciones.configuracion.protocolo.config_perfilado.transporte=config_transporte_mq
 com.bbva.jee.arq.spring.core.auditoria.cacheAlarmas=100
 arqspring.mock.mockescritorio.contexto.perfil.divisaBase=ZZZ
@@ -186,7 +188,7 @@ arqspring.mock.mockescritorio.contexto.codigoCliente=1
 arqspring.mock.mockescritorio.contexto.puesto.disp.imagen=
 com.bbva.jee.arq.spring.core.auditoria.activada=true
 arqspring.mock.mockescritorio.contexto.tecnicosArq.origen.url=
-database.password=
+database.password=qwerty00
 arqspring.componente.multiidioma.9=pt_PT
 servicioTransacciones.configuracion.transporte.config_transporte_mq_latam.host=150.250.250.217
 arqspring.componente.multiidioma.8=va_ES
@@ -358,7 +360,7 @@ com.bbva.jee.arq.spring.core.auditoria.registrador.diario.servicios.longitudMaxi
 arqspring.mock.mockescritorio.contexto.datosTecnicos.usuarioLogico=
 com.bbva.jee.arq.spring.core.auditoria.registrador.diario.operaciones.longitudMaximaDatoAuditable=10000
 VAR.CATEGORY.AUDITORIA-DIARIO-CLIENTES-SERVICIOS=INFO,AUDITORIA-DIARIO-CLIENTES-SERVICIOS
-database.driverClassName=oracle.jdbc.OracleDriver
+database.driverClassName=oracle.jdbc.driver.OracleDriver
 arqspring.mock.mockescritorio.contexto.perfil.propiedades=
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.GRABACION.DIRECTORIO=/W\:/Desarrollo/gehr/online/multipais/web/dat
 VAR.ARQSPRING.SERVICIOGPO.RUTAFICHEROSGPOLOCAL=/W\:/Desarrollo/gehr/online/multipais/web/tmp
@@ -374,3 +376,4 @@ servicioTransacciones.configuracion.transporte.config_transporte_mq_latam.progra
 arqspring.mock.mockescritorio.contexto.transacciones.autorizacion=
 com.bbva.jee.arq.spring.core.recursosestaticos.aplicacion.properties=gehr_multipais_web_pub
 servicioTransacciones.configuracion.transporte.config_transporte_ws.puerto={http\://ws.protocol.physical.integration.elara.bbva.com/}ConnectorWebServicePort
+=\=\=\=\=\=\=
