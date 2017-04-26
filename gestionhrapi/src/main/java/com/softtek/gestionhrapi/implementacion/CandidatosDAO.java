@@ -1,10 +1,11 @@
-package com.softtek.gestionhrapi.dominio;
+package com.softtek.gestionhrapi.implementacion;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
 import com.softtek.exception.GestionHrException;
+import com.softtek.gestionhrapi.dominio.Candidatos;
 
 public interface CandidatosDAO {
 

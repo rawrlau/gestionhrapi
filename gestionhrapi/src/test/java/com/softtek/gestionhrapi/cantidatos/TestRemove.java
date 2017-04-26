@@ -1,4 +1,4 @@
-package com.softtek.gestionhrapi;
+package com.softtek.gestionhrapi.cantidatos;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -13,14 +13,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.softtek.exception.GestionHrException;
 import com.softtek.gestionhrapi.dominio.Candidatos;
-import com.softtek.gestionhrapi.dominio.CandidatosDAO;
+import com.softtek.gestionhrapi.implementacion.CandidatosDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/META-INF/spring/applicationContext*.xml" })
-public class TestCandidatosBaja {
+public class TestRemove {
 
 	@Autowired
-	CandidatosDAO candidato;
+	CandidatosDAO candidatoDAO;
 
 	/**
 	 * Se comprueba que la baja de candidato ha sido realizada.
@@ -31,7 +31,7 @@ public class TestCandidatosBaja {
 		long antes = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos ANTES: " + antes);
 		
-		candidato.deleteCandidato(new BigDecimal(33));
+		candidatoDAO.deleteCandidato(new BigDecimal(33));
 
 		long despues = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos DESPUÉS: " + despues);
@@ -47,8 +47,8 @@ public class TestCandidatosBaja {
 	@Test(expected = GestionHrException.class)
 	public void testBajaCandidatoIdNoExistente() throws GestionHrException {
 		
-		Candidatos candidato = this.candidato.readCandidato(null);
-		this.candidato.deleteCandidato(candidato.getIdCandidato());
+		Candidatos candidato = candidatoDAO.readCandidato(null);
+		candidatoDAO.deleteCandidato(candidato.getIdCandidato());
 	}
 	
 	

@@ -1,4 +1,4 @@
-package com.softtek.gestionhrapi.dominio;
+package com.softtek.gestionhrapi.implementacion;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.bbva.jee.arq.spring.core.log.I18nLog;
 import com.bbva.jee.arq.spring.core.log.I18nLogFactory;
 import com.softtek.exception.GestionHrException;
+import com.softtek.gestionhrapi.dominio.Candidatos;
 
 @Component
 public class CandidatosDAOImpl implements CandidatosDAO {
