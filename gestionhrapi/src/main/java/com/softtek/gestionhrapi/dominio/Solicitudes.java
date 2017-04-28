@@ -24,12 +24,12 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 // RooEntity se encarga de inyectar las operaciones de consulta, update, insert
 // y delete.
-@RooEntity(versionField = "", table = "SOLICITUDES", schema = "FORMACION" )
+@RooEntity(versionField = "", table = "SOLICITUDES", schema = "FORMACION")
 // RooDbManaged esta asociada con un aspecto que define los campos persistentes
 // (las columnas) de la entidad.
 @RooDbManaged(automaticallyDelete = true)
-@XmlRootElement(name="infoSolicitudes", namespace = "solicitud")
-@XmlType(name="infoSolicitudes", namespace = "solicitud")
+@XmlRootElement(name = "infoSolicitudes", namespace = "solicitud")
+@XmlType(name = "infoSolicitudes", namespace = "solicitud")
 public class Solicitudes {
 
 	// Secuencia incremental del ID.
