@@ -1,7 +1,6 @@
 package com.softtek.gestionhrapi.cantidatos;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import junit.framework.Assert;
 
@@ -30,7 +29,7 @@ public class TestRemove {
 
 		long antes = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos ANTES: " + antes);
-		
+
 		candidatoDAO.deleteCandidato(new BigDecimal(46));
 
 		long despues = Candidatos.countCandidatoses();
@@ -45,10 +44,9 @@ public class TestRemove {
 	 * @throws GestionHrException
 	 */
 	@Test(expected = GestionHrException.class)
-	public void testBajaCandidatoIdNoExistente() throws GestionHrException {		
+	public void testBajaCandidatoIdNoExistente() throws GestionHrException {
 		Candidatos candidato = candidatoDAO.readCandidato(null);
 		candidatoDAO.deleteCandidato(candidato.getIdCandidato());
 	}
-	
-	
+
 }

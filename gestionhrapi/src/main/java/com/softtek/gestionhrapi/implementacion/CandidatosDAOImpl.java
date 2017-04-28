@@ -1,6 +1,7 @@
 package com.softtek.gestionhrapi.implementacion;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -30,15 +31,33 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 	 * Devuelve un candidato cuya Id se le pasa por parámetro
 	 */
 	@Override
-	public Candidatos readCandidato(BigDecimal idCandidato)
-			throws GestionHrException {
-
+	public Candidatos readCandidato(BigDecimal idCandidato) throws GestionHrException {
 		Candidatos candidato = null;
 		if (validateIdCandidato(idCandidato)) {
 			candidato = Candidatos.findCandidatos(idCandidato);
 			LOG.info("Candidato encontrado: " + candidato.toString());
 		}
 		return candidato;
+	}
+
+	/**
+	 * Devuelve una lista con todos los candidatos
+	 */
+	@Override
+	public List<Candidatos> readAllCandidatos() throws GestionHrException {
+		return Candidatos.findAllCandidatoses();
+	}
+
+	/**
+	 * Devuelve una lista de un número limitado (max) de candidatos
+	 */
+	@Override
+	public List<Candidatos> readAllCandidatos(int max) throws GestionHrException {
+		List<Candidatos> lista = Candidatos.findAllCandidatoses();
+		List<Candidatos> listaLimitada = new ArrayList<Candidatos>();
+		for (int i = 0; i < max; i++)
+			listaLimitada.add(lista.get(i));
+		return listaLimitada;
 	}
 
 	/**
@@ -56,8 +75,7 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 	 * Borra un candidato de la base de datos.
 	 */
 	@Override
-	public void deleteCandidato(BigDecimal idCandidato)
-			throws GestionHrException {
+	public void deleteCandidato(BigDecimal idCandidato) throws GestionHrException {
 		Candidatos candidato = readCandidato(idCandidato);
 		candidato.remove();
 		LOG.info("Baja de candidato realizada con éxito.");
@@ -71,14 +89,12 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 	 * @return
 	 * @throws GestionHrException
 	 */
-	private boolean validateIdCandidato(BigDecimal idCandidato)
-			throws GestionHrException {
+	private boolean validateIdCandidato(BigDecimal idCandidato) throws GestionHrException {
 		List<Candidatos> lista = Candidatos.findAllCandidatoses();
 		for (Candidatos candidato : lista)
 			if (candidato.getIdCandidato().equals(idCandidato))
 				return true;
-		throw new GestionHrException(
-				"La ID CANDIDATO no existe en la base de datos.");
+		throw new GestionHrException("La ID CANDIDATO no existe en la base de datos.");
 	}
 
 	/**
@@ -90,8 +106,7 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 	 * @return
 	 * @throws GestionHrException
 	 */
-	private boolean validateCandidato(Candidatos candidato)
-			throws GestionHrException {
+	private boolean validateCandidato(Candidatos candidato) throws GestionHrException {
 
 		String nuloVar = "";
 		String nuloMensaje = "no puede ser null";

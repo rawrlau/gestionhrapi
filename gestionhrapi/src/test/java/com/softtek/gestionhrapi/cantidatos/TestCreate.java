@@ -1,7 +1,6 @@
 package com.softtek.gestionhrapi.cantidatos;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
 
 import junit.framework.Assert;
 
@@ -13,10 +12,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.softtek.exception.GestionHrException;
 import com.softtek.gestionhrapi.dominio.Candidatos;
-import com.softtek.gestionhrapi.dominio.Contactos;
-import com.softtek.gestionhrapi.dominio.IdiomasCandidato;
-import com.softtek.gestionhrapi.dominio.Solicitudes;
-import com.softtek.gestionhrapi.dominio.Tecnologias;
 import com.softtek.gestionhrapi.implementacion.CandidatosDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -96,8 +91,7 @@ public class TestCreate {
 	 * @throws GestionHrException
 	 */
 	@Test(expected = GestionHrException.class)
-	public void testAltaCandidatoExpectContractualNull()
-			throws GestionHrException {
+	public void testAltaCandidatoExpectContractualNull() throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setExpectContractual(null);
 		candidatoDAO.createCandidato(candidatoAlta);
@@ -109,8 +103,7 @@ public class TestCreate {
 	 * @throws GestionHrException
 	 */
 	@Test(expected = GestionHrException.class)
-	public void testAltaCandidatoExpectEconomicaNull()
-			throws GestionHrException {
+	public void testAltaCandidatoExpectEconomicaNull() throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setExpectEconomica(null);
 		candidatoDAO.createCandidato(candidatoAlta);
@@ -122,8 +115,7 @@ public class TestCreate {
 	 * @throws GestionHrException
 	 */
 	@Test(expected = GestionHrException.class)
-	public void testAltaCandidatoFeedbackSourcingNull()
-			throws GestionHrException {
+	public void testAltaCandidatoFeedbackSourcingNull() throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setFeedbackSourcing(null);
 		candidatoDAO.createCandidato(candidatoAlta);
@@ -135,8 +127,7 @@ public class TestCreate {
 	 * @throws GestionHrException
 	 */
 	@Test(expected = GestionHrException.class)
-	public void testAltaCandidatoTecnicoSeleccionNull()
-			throws GestionHrException {
+	public void testAltaCandidatoTecnicoSeleccionNull() throws GestionHrException {
 		Candidatos candidatoAlta = candidatoInit();
 		candidatoAlta.setTecnicoSeleccion(null);
 		candidatoDAO.createCandidato(candidatoAlta);
@@ -165,11 +156,11 @@ public class TestCreate {
 	 */
 	private Candidatos candidatoInit() {
 		Candidatos candidatoP = new Candidatos();
-		candidatoP.setNombre("Gandalf");
-		candidatoP.setProvincia("Tierra Media");
-		candidatoP.setPerfil("Mago");
-		candidatoP.setExpectContractual("Ser el boss");
-		candidatoP.setExpectEconomica(new BigDecimal(99999999));
+		candidatoP.setNombre("Gollum");
+		candidatoP.setProvincia("Misty Mountain");
+		candidatoP.setPerfil("Hobbit");
+		candidatoP.setExpectContractual("Encontrar el anillo");
+		candidatoP.setExpectEconomica(new BigDecimal(2));
 		candidatoP.setFeedbackSourcing("FS");
 		candidatoP.setTecnicoSeleccion("TS");
 		return candidatoP;

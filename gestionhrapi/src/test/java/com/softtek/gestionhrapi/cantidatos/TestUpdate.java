@@ -34,7 +34,7 @@ public class TestUpdate {
 	@Before
 	public void init() throws GestionHrException {
 		idCandidato = new BigDecimal(36);
-		nombre = "Alejandro";
+		nombre = "Zidane";
 		apellidos = "Martín";
 		provincia = "Cáceres";
 		perfil = "Programador";
