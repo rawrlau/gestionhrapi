@@ -69,12 +69,8 @@ public class TestProyecto {
 		solicitud.setConsultorasContactadas("Hola");
 		solicitud.setEstado("Hola");
 
-		try {
-			solicitudDao.altaSolicitudCompleta(solicitud);
-			LOG.debug("Solicitud dada de alta");
-		} catch (Exception e) {
-			LOG.error(e, "Error al dar de alta");
-		}
+		solicitudDao.altaSolicitudCompleta(solicitud);
+		LOG.debug("Solicitud dada de alta");
 
 		long numDespuesAlta = solicitudDao.countSolicitudes();
 		assertEquals(numAntesAlta + 1, numDespuesAlta);
@@ -92,12 +88,8 @@ public class TestProyecto {
 		boolean resultado = false;
 		long numAntesBaja = solicitudDao.countSolicitudes();
 
-		try {
-			resultado = solicitudDao.eliminarSolicitud(new BigDecimal(identificador));
-			LOG.debug("Solicitud dada de baja");
-		} catch (Exception e) {
-			LOG.error(e, "Error al dar de baja");
-		}
+		resultado = solicitudDao.eliminarSolicitud(new BigDecimal(identificador));
+		LOG.debug("Solicitud dada de baja");
 
 		long numDespuesBaja = solicitudDao.countSolicitudes();
 		assertEquals(numAntesBaja - 1, numDespuesBaja);
@@ -116,12 +108,8 @@ public class TestProyecto {
 		Solicitudes solicitud = Solicitudes.findSolicitudes(new BigDecimal(identificador));
 		solicitud.setNombre("Modificacion");
 
-		try {
-			solicitudDao.modificarSolicitud(solicitud);
-			LOG.debug("Solicitud modificada");
-		} catch (Exception e) {
-			LOG.error(e, "Error al modificar");
-		}
+		solicitudDao.modificarSolicitud(solicitud);
+		LOG.debug("Solicitud modificada");
 
 		Assert.assertEquals("Modificacion", solicitud.getNombre());
 	}
@@ -144,27 +132,6 @@ public class TestProyecto {
 
 		Solicitudes solicitud = solicitudDao.getSolicitud(new BigDecimal(-1));
 		assertEquals(null, solicitud);
-
-	}
-
-	@Test(expected = GestionhrException.class)
-	public void testAltaSolicitudesCompletaCharacter() throws GestionhrException {
-
-		LOG.info("Se añaden las solicitudes");
-		long numAntesAlta = solicitudDao.countSolicitudes();
-		Solicitudes solicitud = new Solicitudes();
-		solicitud.setViajar('6');
-		solicitud.setGuardias('1');
-
-		try {
-			solicitudDao.altaSolicitudCompleta(solicitud);
-			LOG.debug("Solicitud dada de alta");
-		} catch (Exception e) {
-			LOG.error(e, "Error al dar de alta");
-		}
-
-		long numDespuesAlta = solicitudDao.countSolicitudes();
-		assertEquals(numAntesAlta + 1, numDespuesAlta);
 
 	}
 
