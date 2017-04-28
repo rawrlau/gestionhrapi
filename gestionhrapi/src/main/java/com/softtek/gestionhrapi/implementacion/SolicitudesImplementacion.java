@@ -1,6 +1,7 @@
 package com.softtek.gestionhrapi.implementacion;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -83,5 +84,11 @@ public class SolicitudesImplementacion implements SolicitudesInterfaz {
 	public long countSolicitudes() {
 		LOG.info("Obteniendo el numero de solicitudes");
 		return Solicitudes.countSolicitudeses();
+	}
+
+	@Override
+	public List<Solicitudes> getListaSolicitudes() throws GestionhrException {
+		List<Solicitudes> solicitud = Solicitudes.findAllSolicitudeses();
+		return solicitud;
 	}
 }

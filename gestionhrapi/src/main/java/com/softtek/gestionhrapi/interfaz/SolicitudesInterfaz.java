@@ -1,6 +1,7 @@
 package com.softtek.gestionhrapi.interfaz;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -35,7 +36,11 @@ public interface SolicitudesInterfaz {
 
 	@GET
 	@Path("/solicitud/{idSolicitud}")
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN })
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN })
 	public Solicitudes getSolicitud(@PathParam("idSolicitud") BigDecimal idSolicitud) throws GestionhrException;
 
+	@GET
+	@Path("/solicitud/lista")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN })
+	public List<Solicitudes> getListaSolicitudes() throws GestionhrException;
 }

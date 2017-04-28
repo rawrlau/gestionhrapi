@@ -3,7 +3,6 @@
 
 package com.softtek.gestionhrapi.dominio;
 
-import java.lang.Character;
 import java.lang.String;
 import java.util.Date;
 import javax.persistence.Column;
@@ -44,12 +43,6 @@ privileged aspect Solicitudes_Roo_DbManaged {
     
     @Column(name = "INGLES", length = 20)
     private String Solicitudes.ingles;
-    
-    @Column(name = "VIAJAR")
-    private Character Solicitudes.viajar;
-    
-    @Column(name = "GUARDIAS")
-    private Character Solicitudes.guardias;
     
     @Column(name = "CONSULTORAS_CONTACTADAS", length = 255)
     private String Solicitudes.consultorasContactadas;
@@ -135,22 +128,6 @@ privileged aspect Solicitudes_Roo_DbManaged {
     
     public void Solicitudes.setIngles(String ingles) {
         this.ingles = ingles;
-    }
-    
-    public Character Solicitudes.getViajar() {
-        return this.viajar;
-    }
-    
-    public void Solicitudes.setViajar(Character viajar) {
-        this.viajar = viajar;
-    }
-    
-    public Character Solicitudes.getGuardias() {
-        return this.guardias;
-    }
-    
-    public void Solicitudes.setGuardias(Character guardias) {
-        this.guardias = guardias;
     }
     
     public String Solicitudes.getConsultorasContactadas() {

@@ -42,6 +42,12 @@ public class Solicitudes {
 	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "solicitudeses")
 	private Set<Candidatos> candidatoss;
 
+	@Column(name = "VIAJAR")
+	private String viajar;
+
+	@Column(name = "GUARDIAS")
+	private String guardias;
+
 	public Set<Candidatos> getCandidatoss() {
 		return this.candidatoss;
 	}
@@ -56,6 +62,22 @@ public class Solicitudes {
 
 	public void setIdSolicitud(BigDecimal id) {
 		this.idSolicitud = id;
+	}
+
+	public String getViajar() {
+		return viajar;
+	}
+
+	public void setViajar(String viajar) {
+		this.viajar = viajar;
+	}
+
+	public String getGuardias() {
+		return guardias;
+	}
+
+	public void setGuardias(String guardias) {
+		this.guardias = guardias;
 	}
 
 }

@@ -64,8 +64,8 @@ public class TestProyecto {
 		solicitud.setReqObligatorios("Hola");
 		solicitud.setReqDeseables("Hola");
 		solicitud.setIngles("Hola");
-		solicitud.setViajar('V');
-		solicitud.setGuardias('G');
+		solicitud.setViajar("E");
+		solicitud.setGuardias("G");
 		solicitud.setConsultorasContactadas("Hola");
 		solicitud.setEstado("Hola");
 
