@@ -1,5 +1,5 @@
 #
-#Fri Apr 28 10:48:02 CEST 2017
+#Wed May 03 16:47:36 CEST 2017
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.GRABACION=false
 arqspring.mock.mockescritorio.contexto.puesto.info.puestoFisicoEscritorio=
 servicioTransacciones.configuracion.protocolo.elara.puesto=0
@@ -152,7 +152,7 @@ VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_ALTAMIRA.MA
 com.bbva.jee.arq.spring.core.auditoria.registrador.operacion.longitudMaximaDatoAuditable=10000
 com.bbva.jee.arq.spring.core.aplicacion.paquetebase.modulo=com.softtek.gestionhrapi
 ocr.ruta.salida=W\:/Desarrollo/ocr/salida/
-VAR.APPENDER.LOGFILE2.FILE=/W\:/Desarrollo/gehr/online/multipais/web/logs/solicitudes__01.log
+VAR.APPENDER.LOGFILE2.FILE=/W\:/Desarrollo/gehr/online/multipais/web/logs/logsDemo__01.log
 servicioTransacciones.configuracion.transporte.config_transporte_mq.formatoMensaje=IMS
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_MQ_LATAM.MANAGER=QMMTESC1
 servicioTransacciones.configuracion.protocolo.config_perfilado.cabecera=QP03

@@ -21,45 +21,40 @@ public class SolicitudesImplementacion implements SolicitudesInterfaz {
 	@Override
 	public void altaSolicitudCompleta(Solicitudes solicitud) {
 
-		LOG.debug("Alta de solicitud, se comprueba el tipo");
+		LOG.debug("Alta de solicitud (Implementación)");
 		try {
-			LOG.debug("Antes del persist");
+			LOG.debug("Antes del persist (Implementación)");
 			solicitud.persist();
-			LOG.debug("Despues del persist");
+			LOG.debug("Despues del persist (Implementación)");
 		} catch (Exception e) {
-			LOG.error(e, "Error al dar de alta");
+			LOG.error(e, "Error al dar de alta (Implementación)");
 		}
 	}
 
 	@Override
 	public void modificarSolicitud(Solicitudes solicitud) {
 
-		LOG.debug("Modificacion de solicitud, se comprueba el tipo");
+		LOG.debug("Modificacion de solicitud (Implementación)");
 		try {
-			LOG.debug("Antes del merge.");
+			LOG.debug("Antes del merge (Implementación)");
 			solicitud.merge();
-			LOG.debug("Despues del merge");
+			LOG.debug("Despues del merge (Implementación)");
 		} catch (Exception e) {
-			LOG.error(e, "Error al dar de baja");
+			LOG.error("Error al modificar (Implementación)");
 		}
 	}
 
 	@Override
 	public boolean eliminarSolicitud(BigDecimal idSolicitud) {
 
-		LOG.debug("Eliminar solicitud");
+		LOG.debug("Eliminar solicitud (Implementación)");
 		Solicitudes solicitud = Solicitudes.findSolicitudes(idSolicitud);
 		try {
-			if (solicitud != null) {
-				LOG.debug("Antes del remove.");
-				solicitud.remove();
-				LOG.debug("Despues del remove.");
-				LOG.debug("Solicitud eliminada");
-			} else {
-				LOG.debug("No se ha podido dar de baja la solicitud");
-			}
+			LOG.debug("Antes del remove (Implementación)");
+			solicitud.remove();
+			LOG.debug("Despues del remove (Implementación)");
 		} catch (Exception e) {
-			LOG.error(e, "Error al eliminar");
+			LOG.error(e, "Error al eliminar (Implementación)");
 		}
 
 		if (null == Solicitudes.findSolicitudes(solicitud.getIdSolicitud())) {
@@ -72,17 +67,17 @@ public class SolicitudesImplementacion implements SolicitudesInterfaz {
 	@Override
 	public Solicitudes getSolicitud(BigDecimal idSolicitud) throws GestionhrException {
 
-		LOG.info("Obteniendo solicitudes");
+		LOG.info("Obteniendo solicitud por Id (Implementación)");
 		Solicitudes solicitud = Solicitudes.findSolicitudes(idSolicitud);
 		if (solicitud == null) {
-			throw new GestionhrException("No se encuentra la solicitud con la Id : " + idSolicitud);
+			LOG.info("No se encuentra la solicitud con la Id (Implementación): " + idSolicitud);
 		}
 		return solicitud;
 	}
 
 	@Override
 	public long countSolicitudes() {
-		LOG.info("Obteniendo el numero de solicitudes");
+		// LOG.info("Obteniendo el numero de solicitudes (Implementación)");
 		return Solicitudes.countSolicitudeses();
 	}
 
