@@ -1,8 +1,8 @@
 package com.softtek.gestionhrapi;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.math.BigDecimal;
+
+import junit.framework.Assert;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.softtek.gestionhrapi.dominio.Tecnologias;
+import com.softtek.gestionhrapi.dominio.exception.GestionHrException;
 import com.softtek.gestionhrapi.dominio.interfaces.Tecnologias_Dao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -17,11 +19,31 @@ import com.softtek.gestionhrapi.dominio.interfaces.Tecnologias_Dao;
 public class testModificarTecnologias {
 
 	@Autowired
-	Tecnologias_Dao pruebaTecno;
+	Tecnologias_Dao pruebaUpdate;
+
+	Tecnologias tecnoC = new Tecnologias();
+	String nombre = "AAAA";
+	String descripcion = "XXXX";
+	BigDecimal id = new BigDecimal(38);
+
+	/* Se comprueba que el nombre ha sido modificado correctamente */
 
 	@Test
-	public void ModificarTecnologias() {
-		pruebaTecno.modificarTecnologia("elpruebas", "cambie mi nombre anterior", new BigDecimal(49));
-		assertNotNull(pruebaTecno);
+	public void testUpdate() throws GestionHrException {
+
+		tecnoC = pruebaUpdate.readTecnologia(id);
+		tecnoC.setNombre(nombre);
+		pruebaUpdate.updateTecnologia(tecnoC);
+		Assert.assertEquals(tecnoC.getNombre(), nombre);
 	}
+
+	/* Se comprueba que la descripcion ha sido modificado correctamente */
+	@Test
+	public void testUpdate1() throws GestionHrException {
+		tecnoC = pruebaUpdate.readTecnologia(id);
+		tecnoC.setDescripcion(descripcion);
+		pruebaUpdate.updateTecnologia(tecnoC);
+		Assert.assertEquals(tecnoC.getDescripcion(), descripcion);
+	}
+
 }

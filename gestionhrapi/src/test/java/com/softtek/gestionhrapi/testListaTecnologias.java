@@ -1,8 +1,9 @@
 package com.softtek.gestionhrapi;
 
-import java.math.BigDecimal;
+import java.util.List;
 
-import org.junit.Assert;
+import junit.framework.Assert;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,23 +15,19 @@ import com.softtek.gestionhrapi.dominio.interfaces.Tecnologias_Dao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml")
-public class testConsultaTecnologias {
+public class testListaTecnologias {
 
 	@Autowired
-	Tecnologias_Dao pruebaRead;
+	Tecnologias_Dao pruebaLista;
 
 	@Test
-	public void testConsultaTecnologia() {
-		try {
-			Tecnologias tec = pruebaRead.readTecnologia(new BigDecimal(110));
-			System.out.println();
-			System.out.println("id: " + tec.getIdTecnologia());
-			System.out.println("nombre: " + tec.getNombre());
-			System.out.println("Descripcion: " + tec.getDescripcion());
-			Assert.assertNotNull(tec);
-		} catch (Exception e) {
-			System.out.println("no lo encuentra");
+	public void ConsultarTecnologias() {
+		List<Tecnologias> lista = pruebaLista.listaTecnologias();
+
+		for (Tecnologias tecnologias : lista) {
+			System.out.println("NOMBRE: " + tecnologias.getNombre() + " DESCRIPCION: " + tecnologias.getDescripcion());
 		}
+		Assert.assertNotNull(lista.size());
 
 	}
 

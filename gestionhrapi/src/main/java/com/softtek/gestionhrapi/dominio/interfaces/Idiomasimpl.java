@@ -32,4 +32,13 @@ public class Idiomasimpl implements Idiomas_Dao {
 		}
 	}
 
+	@Override
+	public void modificarIdioma(String idioma, BigDecimal idCandidato, String nivel, String descripcion) {
+		IdiomasCandidatoPK idiomaPK = new IdiomasCandidatoPK(idioma, idCandidato, nivel);
+		IdiomasCandidato idi = IdiomasCandidato.findIdiomasCandidato(idiomaPK);
+		idi.setDescripcion(descripcion);
+		idi.merge();
+		LOG.info("\n funciono!");
+	}
+
 }

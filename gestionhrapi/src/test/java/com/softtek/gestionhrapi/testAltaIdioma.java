@@ -21,7 +21,7 @@ public class testAltaIdioma {
 
 	@Test
 	public void altaIdioma() {
-		idioma.altaIdioma("Frances", new BigDecimal(78), "Practicar", "Bajo");
+		idioma.altaIdioma("Frances", new BigDecimal(74), "Practicar", "Bajo");
 		assertNotNull(idioma);
 	}
 }

@@ -27,10 +27,10 @@ public class testAltaContacto {
 	@Test
 	public void altaContacto() {
 		long inicio = Contactos.countContactoses();
-		LOG.info("\n Hay " + inicio + " contactos");
-		contacto.altaContactos(new BigDecimal(74), "Instagram", "Hello");
+		LOG.info("\n Cantidad de contactos: " + inicio);
+		contacto.altaContactos(new BigDecimal(74), "Facebook", "hola@hotmail.es");
 		long fin = Contactos.countContactoses();
-		LOG.info("\n Hay " + fin + " contactos");
+		LOG.info("\n Cantidad de contactos: " + fin);
 		Assert.assertEquals(fin, inicio + 1);
 	}
 }
