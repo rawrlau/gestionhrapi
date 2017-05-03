@@ -60,5 +60,24 @@
 		</property>
 		<property name="bus" ref="cxf"/>
 	</bean>
-
+	<!-- JAX-RS Service -->
+    <jaxrs:server id="restServer" address="/rest">
+        <jaxrs:serviceBeans>
+            <ref bean="contactoimpl"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <bean class="com.bbva.jee.arq.spring.core.gce.ExcepcionAplicacionMapper"/>
+            <bean class="com.bbva.jee.arq.spring.core.gce.ExcepcionEjecucionAplicacionMapper"/>        
+            <bean class="org.apache.cxf.jaxrs.model.wadl.WadlGenerator">
+                <property name="singleResourceMultipleMethods" value="false" />
+                <property name="addResourceAndMethodIds" value="true" />
+            </bean>
+        </jaxrs:providers>  
+       <jaxrs:extensionMappings>
+            <entry key="feed" value="application/atom+xml"/>
+            <entry key="json" value="application/json"/>
+            <entry key="xml" value="application/xml"/>
+            <entry key="html" value="text/html"/>
+        </jaxrs:extensionMappings>
+    </jaxrs:server>
 </beans>
