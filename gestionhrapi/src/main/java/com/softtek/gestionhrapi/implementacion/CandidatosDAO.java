@@ -38,6 +38,26 @@ public interface CandidatosDAO {
 	@Produces({ MediaType.APPLICATION_JSON })
 	public List<Candidatos> readAllCandidatos(@PathParam("max") int max) throws GestionHrException;
 
+	@GET
+	@Path("/candidatos/findCandidatoByNombre/{nombre}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public List<Candidatos> findCandidatoByNombre(@PathParam("nombre") String nombre) throws GestionHrException;
+
+	@GET
+	@Path("/candidatos/findCandidatoByApellidos/{apellidos}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public List<Candidatos> findCandidatoByApellidos(@PathParam("apellidos") String apellidos);
+
+	@GET
+	@Path("/candidatos/findCandidatoByEstado/{estado}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public List<Candidatos> findCandidatoByEstado(@PathParam("estado") String estado);
+
+	@GET
+	@Path("/candidatos/findCandidatoByPerfil/{perfil}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public List<Candidatos> findCandidatoByPerfil(@PathParam("perfil") String perfil);
+
 	@POST
 	@Path("/candidatos/update")
 	@Produces({ MediaType.APPLICATION_JSON })
@@ -47,4 +67,5 @@ public interface CandidatosDAO {
 	@Path("/candidatos/delete/{idCandidato}")
 	@Produces({ MediaType.APPLICATION_JSON })
 	public void deleteCandidato(@PathParam("idCandidato") BigDecimal idCandidato) throws GestionHrException;
+
 }

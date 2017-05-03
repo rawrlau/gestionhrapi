@@ -25,8 +25,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooEntity(versionField = "", table = "CANDIDATOS", schema = "FORMACION")
 @RooDbManaged(automaticallyDelete = true)
-@XmlRootElement(name="candidatos" , namespace="candidatos")
-@XmlType(name="candidatos" , namespace="candidatos")
+@XmlRootElement(name = "candidatos", namespace = "candidatos")
+@XmlType(name = "candidatos", namespace = "candidatos")
 public class Candidatos {
 
 	@Id
@@ -50,5 +50,3 @@ public class Candidatos {
 	private Set<IdiomasCandidato> idiomasCandidatoes;
 
 }
-
-

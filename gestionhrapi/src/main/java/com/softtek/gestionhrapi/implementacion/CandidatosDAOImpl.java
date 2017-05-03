@@ -45,7 +45,12 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 	 */
 	@Override
 	public List<Candidatos> readAllCandidatos() throws GestionHrException {
-		return Candidatos.findAllCandidatoses();
+		List<Candidatos> lista = Candidatos.findAllCandidatoses();
+		LOG.info("======== Lista de candidatos ========");
+		for (Candidatos candidato : lista) {
+			System.out.println(candidato.toString());
+		}
+		return lista;
 	}
 
 	/**
@@ -55,9 +60,64 @@ public class CandidatosDAOImpl implements CandidatosDAO {
 	public List<Candidatos> readAllCandidatos(int max) throws GestionHrException {
 		List<Candidatos> lista = Candidatos.findAllCandidatoses();
 		List<Candidatos> listaLimitada = new ArrayList<Candidatos>();
-		for (int i = 0; i < max; i++)
+		LOG.info("======== Lista de candidatos ========");
+		for (int i = 0; i < max; i++) {
 			listaLimitada.add(lista.get(i));
+			System.out.println(listaLimitada.get(i).toString());
+		}
 		return listaLimitada;
+	}
+
+	/**
+	 * Encuentra los candidatos en función del nombre
+	 */
+	@Override
+	public List<Candidatos> findCandidatoByNombre(String nombre) throws GestionHrException {
+		List<Candidatos> lista = null;
+		try {
+			LOG.info("======== Lista de candidatos ========");
+			lista = Candidatos
+					.entityManager()
+					.createQuery(
+							"SELECT o FROM Candidatos o WHERE LOWER(translate(NOMBRE, 'áéíóúÁÉÍÓÚ', 'aeiouAEIOU')) like LOWER(translate(:nombre, 'áéíóúÁÉÍÓÚ', 'aeiouAEIOU'))",
+							Candidatos.class).setParameter("nombre", "%" + nombre + "%").getResultList();
+			return lista;
+		} catch (Exception e) {
+			LOG.error("Error SQL.");
+			return lista;
+		}
+	}
+
+	/**
+	 * Encuentra los candidatos en función de los apellidos
+	 */
+	@Override
+	public List<Candidatos> findCandidatoByApellidos(String apellidos) {
+		return Candidatos
+				.entityManager()
+				.createQuery(
+						"SELECT o FROM Candidatos o WHERE LOWER(translate(APELLIDOS, 'áéíóúÁÉÍÓÚ', 'aeiouAEIOU')) like LOWER(translate(:apellidos, 'áéíóúÁÉÍÓÚ', 'aeiouAEIOU'))",
+						Candidatos.class).setParameter("apellidos", "%" + apellidos + "%").getResultList();
+	}
+
+	/**
+	 * Encuentra los candidatos en función del estado
+	 */
+	@Override
+	public List<Candidatos> findCandidatoByEstado(String estado) {
+		return Candidatos.entityManager()
+				.createQuery("SELECT o FROM Candidatos o WHERE ESTADO like :estado", Candidatos.class)
+				.setParameter("estado", estado).getResultList();
+	}
+
+	/**
+	 * Encuentra los candidatos en función del perfil
+	 */
+	@Override
+	public List<Candidatos> findCandidatoByPerfil(String perfil) {
+		return Candidatos.entityManager()
+				.createQuery("SELECT o FROM Candidatos o WHERE PERFIL like :perfil", Candidatos.class)
+				.setParameter("perfil", perfil).getResultList();
 	}
 
 	/**
