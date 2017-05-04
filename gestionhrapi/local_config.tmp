@@ -1,4 +1,3 @@
-#
 #Thu May 04 13:29:22 CEST 2017
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.GRABACION=false
 arqspring.mock.mockescritorio.contexto.puesto.info.puestoFisicoEscritorio=
@@ -23,6 +22,8 @@ servicioTransacciones.configuracion.protocolo.ps9.usuarioMayusculas=false
 com.bbva.jee.arq.spring.core.aplicacion.canal=web
 arqspring.mock.mockescritorio.contexto.datosTecnicos.UUAARemitente=
 VAR.CATEGORY.COM=DEBUG,LOGFILE,STDOUT
+VAR.CATEGORY.COM.SOFTTEK.GESTIONHRAPI=TRACE,LOGFILE2,STDOUT
+VAR.CATEGORY.COM=DEBUG,LOGFILE,STDOUT,INFO,LOGFILE,STDOUT
 VAR.APPENDER.AUDITORIA-DIARIO-ERRORES.FILE=/W\:/Desarrollo/gehr/online/multipais/web/logs/gehr_gestionhrapi_01_diario_errores${sys\:cloneId}.txt
 arqspring.mock.proxy.activado=false
 servicioTransacciones.configuracion.transporte.config_transporte_mq_altamira.puerto=1414
@@ -138,7 +139,6 @@ arqspring.mock.mockescritorio.contexto.transacciones.origenFisico=
 com.bbva.jee.arq.spring.core.auditoria.registrador.diario.sesiones.activado=true
 VAR.MOCK.PROXY.PASS=
 arqspring.mock.mockescritorio.contexto.perfil.tipoAutorizacion=01
-maestrshr.roles=becario,junior,senior
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_MQ_LATAM.TIMEOUT=60000
 servicioTransacciones.configuracion.transporte.config_transporte_mq.colaRespuestas=DYD.IMS.QZXY.QWR001
 servicioTransacciones.configuracion.transporte.config_transporte_mq_altamira.colaRespuestas=DYD.PO.ARQT.TO.WIN.QMDDW036.QSD00
@@ -148,6 +148,7 @@ VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_ALTAMIRA.MA
 com.bbva.jee.arq.spring.core.auditoria.registrador.operacion.longitudMaximaDatoAuditable=10000
 com.bbva.jee.arq.spring.core.aplicacion.paquetebase.modulo=com.softtek.gestionhrapi
 ocr.ruta.salida=W\:/Desarrollo/ocr/salida/
+VAR.APPENDER.LOGFILE2.FILE=/W\:/Desarrollo/gehr/online/multipais/web/logs/logsDemo__01.log
 servicioTransacciones.configuracion.transporte.config_transporte_mq.formatoMensaje=IMS
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_MQ_LATAM.MANAGER=QMMTESC1
 servicioTransacciones.configuracion.protocolo.config_perfilado.cabecera=QP03
@@ -310,7 +311,6 @@ arqspring.mock.mockescritorio.contexto.perfil.cargoFun=
 servicioTransacciones.configuracion.transporte.config_transporte_mq_latam.manager=QMMTESC1
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_MQ_LATAM.PROGRAMA=KAQA
 servicioTransacciones.configuracion.protocolo.otma.medioAcceso=1
-maestrshr.idiomas=espa\u00F1ol,ingles
 arqspring.mock.mockescritorio.contexto.perfil.grupoPertenencia=
 beanAutenticacion=com.bbva.jee.arq.spring.core.seguridad.perfilado.flexible.AutenticadorWebSeal
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.MQ.POOL.MAXCONEXIONES=10

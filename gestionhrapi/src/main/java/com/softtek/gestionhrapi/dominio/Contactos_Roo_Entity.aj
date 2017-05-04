@@ -76,6 +76,7 @@ privileged aspect Contactos_Roo_Entity {
         return em;
     }
     
+
     public static List<Contactos> Contactos.findAllContactoses() {
         return entityManager().createQuery("SELECT o FROM Contactos o", Contactos.class).getResultList();
     }

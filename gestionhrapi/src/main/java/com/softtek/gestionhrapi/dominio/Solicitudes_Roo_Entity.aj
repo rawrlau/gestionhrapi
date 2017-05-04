@@ -5,13 +5,10 @@ package com.softtek.gestionhrapi.dominio;
 
 import com.softtek.gestionhrapi.dominio.Solicitudes;
 import java.math.BigDecimal;
-import java.util.List;
-import javax.persistence.Column;
+
+import java.util.List;¡
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.EntityManager;¡
 import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,19 +22,7 @@ privileged aspect Solicitudes_Roo_Entity {
     @PersistenceContext
     transient EntityManager Solicitudes.entityManager;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_SOLICITUD")
-    private BigDecimal Solicitudes.idSolicitud;
-    
-    public BigDecimal Solicitudes.getIdSolicitud() {
-        return this.idSolicitud;
-    }
-    
-    public void Solicitudes.setIdSolicitud(BigDecimal id) {
-        this.idSolicitud = id;
-    }
-    
+
     @Transactional
     public void Solicitudes.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();

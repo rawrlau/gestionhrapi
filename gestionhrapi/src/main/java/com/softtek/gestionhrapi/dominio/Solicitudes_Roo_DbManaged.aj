@@ -3,22 +3,15 @@
 
 package com.softtek.gestionhrapi.dominio;
 
-import com.softtek.gestionhrapi.dominio.Candidatos;
-import java.lang.Character;
+
 import java.lang.String;
 import java.util.Date;
-import java.util.Set;
 import javax.persistence.Column;
-import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Solicitudes_Roo_DbManaged {
-    
-    @ManyToMany(mappedBy = "solicitudeses")
-    private Set<Candidatos> Solicitudes.candidatoss;
-    
     @Column(name = "NOMBRE", length = 50)
     private String Solicitudes.nombre;
     
@@ -51,26 +44,11 @@ privileged aspect Solicitudes_Roo_DbManaged {
     @Column(name = "INGLES", length = 20)
     private String Solicitudes.ingles;
     
-    @Column(name = "VIAJAR")
-    private Character Solicitudes.viajar;
-    
-    @Column(name = "GUARDIAS")
-    private Character Solicitudes.guardias;
-    
     @Column(name = "CONSULTORAS_CONTACTADAS", length = 255)
     private String Solicitudes.consultorasContactadas;
     
     @Column(name = "ESTADO", length = 20)
     private String Solicitudes.estado;
-    
-    public Set<Candidatos> Solicitudes.getCandidatoss() {
-        return this.candidatoss;
-    }
-    
-    public void Solicitudes.setCandidatoss(Set<Candidatos> candidatoss) {
-        this.candidatoss = candidatoss;
-    }
-    
     public String Solicitudes.getNombre() {
         return this.nombre;
     }
@@ -151,22 +129,7 @@ privileged aspect Solicitudes_Roo_DbManaged {
         this.ingles = ingles;
     }
     
-    public Character Solicitudes.getViajar() {
-        return this.viajar;
-    }
-    
-    public void Solicitudes.setViajar(Character viajar) {
-        this.viajar = viajar;
-    }
-    
-    public Character Solicitudes.getGuardias() {
-        return this.guardias;
-    }
-    
-    public void Solicitudes.setGuardias(Character guardias) {
-        this.guardias = guardias;
-    }
-    
+
     public String Solicitudes.getConsultorasContactadas() {
         return this.consultorasContactadas;
     }

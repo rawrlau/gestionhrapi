@@ -3,40 +3,18 @@
 
 package com.softtek.gestionhrapi.dominio;
 
-import com.softtek.gestionhrapi.dominio.Contactos;
-import com.softtek.gestionhrapi.dominio.IdiomasCandidato;
-import com.softtek.gestionhrapi.dominio.Solicitudes;
-import com.softtek.gestionhrapi.dominio.Tecnologias;
 import java.lang.String;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Set;
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Candidatos_Roo_DbManaged {
-    
-    @ManyToMany
-    @JoinTable(name = "SOLICITUDES_CANDIDATO", joinColumns = { @JoinColumn(name = "ID_CANDIDATO", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "ID_SOLICITUD", nullable = false) })
-    private Set<Solicitudes> Candidatos.solicitudeses;
-    
-    @ManyToMany
-    @JoinTable(name = "TECNOLOGIAS_CANDIDATO", joinColumns = { @JoinColumn(name = "ID_CANDIDATO", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "ID_TECNOLOGIA", nullable = false) })
-    private Set<Tecnologias> Candidatos.tecnologiass1;
-    
-    @OneToMany(mappedBy = "idCandidato")
-    private Set<Contactos> Candidatos.contactoss;
-    
-    @OneToMany(mappedBy = "idCandidato")
-    private Set<IdiomasCandidato> Candidatos.idiomasCandidatoes;
-    
+
+
     @Column(name = "NOMBRE", length = 50)
     @NotNull
     private String Candidatos.nombre;
@@ -113,38 +91,7 @@ privileged aspect Candidatos_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date Candidatos.fechaActualizado;
     
-    public Set<Solicitudes> Candidatos.getSolicitudeses() {
-        return this.solicitudeses;
-    }
-    
-    public void Candidatos.setSolicitudeses(Set<Solicitudes> solicitudeses) {
-        this.solicitudeses = solicitudeses;
-    }
-    
-    public Set<Tecnologias> Candidatos.getTecnologiass1() {
-        return this.tecnologiass1;
-    }
-    
-    public void Candidatos.setTecnologiass1(Set<Tecnologias> tecnologiass1) {
-        this.tecnologiass1 = tecnologiass1;
-    }
-    
-    public Set<Contactos> Candidatos.getContactoss() {
-        return this.contactoss;
-    }
-    
-    public void Candidatos.setContactoss(Set<Contactos> contactoss) {
-        this.contactoss = contactoss;
-    }
-    
-    public Set<IdiomasCandidato> Candidatos.getIdiomasCandidatoes() {
-        return this.idiomasCandidatoes;
-    }
-    
-    public void Candidatos.setIdiomasCandidatoes(Set<IdiomasCandidato> idiomasCandidatoes) {
-        this.idiomasCandidatoes = idiomasCandidatoes;
-    }
-    
+
     public String Candidatos.getNombre() {
         return this.nombre;
     }

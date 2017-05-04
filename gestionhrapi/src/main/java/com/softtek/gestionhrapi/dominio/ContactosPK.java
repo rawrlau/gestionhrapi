@@ -1,9 +1,11 @@
 package com.softtek.gestionhrapi.dominio;
 
+
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.xml.bind.annotation.XmlTransient;
+
 
 import org.springframework.roo.addon.entity.RooIdentifier;
 

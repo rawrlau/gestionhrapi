@@ -36,4 +36,5 @@ public class Tecnologias {
 		this.idTecnologia = idTecnologia;
 	}
 
+
 }
