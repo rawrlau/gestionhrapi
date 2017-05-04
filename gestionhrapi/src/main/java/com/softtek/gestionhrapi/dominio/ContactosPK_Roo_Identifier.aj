@@ -19,9 +19,6 @@ privileged aspect ContactosPK_Roo_Identifier {
     @Column(name = "VALOR", nullable = false, length = 50)
     private String ContactosPK.valor;
     
-    @Column(name = "ID_CANDIDATO", nullable = false)
-    private BigDecimal ContactosPK.idCandidato;
-    
     public ContactosPK.new(String tipoContacto, String valor, BigDecimal idCandidato) {
         super();
         this.tipoContacto = tipoContacto;
@@ -39,10 +36,6 @@ privileged aspect ContactosPK_Roo_Identifier {
     
     public String ContactosPK.getValor() {
         return this.valor;
-    }
-    
-    public BigDecimal ContactosPK.getIdCandidato() {
-        return this.idCandidato;
     }
     
     public boolean ContactosPK.equals(Object obj) {

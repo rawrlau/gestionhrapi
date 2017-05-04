@@ -13,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.softtek.gestionhrapi.dominio.Contactos;
+import com.softtek.gestionhrapi.dominio.exception.GestionHrException;
 
 @Path("/contactosREST/")
 public interface Contactos_Dao {
@@ -30,7 +31,8 @@ public interface Contactos_Dao {
 	@GET
 	@Path("/contactos/{idCandidato}")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public List<Contactos> consultarContactos(@PathParam("idCandidato") BigDecimal idCandidato);
+	public List<Contactos> consultarContactos(@PathParam("idCandidato") BigDecimal idCandidato)
+			throws GestionHrException;
 
 	@GET
 	@Path("/contactos/lista")

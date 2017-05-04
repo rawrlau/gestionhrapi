@@ -10,6 +10,7 @@ import com.bbva.jee.arq.spring.core.log.I18nLogFactory;
 import com.softtek.gestionhrapi.dominio.Candidatos;
 import com.softtek.gestionhrapi.dominio.Contactos;
 import com.softtek.gestionhrapi.dominio.ContactosPK;
+import com.softtek.gestionhrapi.dominio.exception.GestionHrException;
 
 @Component
 public class Contactoimpl implements Contactos_Dao {
@@ -53,27 +54,22 @@ public class Contactoimpl implements Contactos_Dao {
 	}
 
 	@Override
-	public List<Contactos> consultarContactos(BigDecimal idCandidato) {
-		try {
-			Candidatos candidato = Candidatos.findCandidatos(idCandidato);
-			LOG.info("\n Candidato: " + candidato.getNombre() + " " + candidato.getApellidos());
-			return Contactos.findContactosByCandidato(idCandidato);
-		} catch (Exception e) {
-			LOG.error(e, "\n no existe el contacto " + e.getMessage());
-			e.getStackTrace();
-		}
-		return null;
+	public List<Contactos> consultarContactos(BigDecimal idCandidato) throws GestionHrException {
+		if (idCandidato == null)
+			throw new GestionHrException("idCandidato null");
+		Candidatos candidato = Candidatos.findCandidatos(idCandidato);
+		if (candidato == null)
+			throw new GestionHrException("Candidato no existe");
+
+		LOG.info("\n Candidato: " + candidato.getNombre() + " " + candidato.getApellidos());
+		return Contactos.findContactosByCandidato(idCandidato);
+
 	}
 
 	@Override
 	public List<Contactos> consultarTodosContactos() {
-		try {
-			return Contactos.findAllContactoses();
-		} catch (Exception e) {
-			LOG.error(e, "\n no hay contactos  " + e.getMessage());
-			e.getStackTrace();
-		}
-		return null;
+		return Contactos.findAllContactoses();
+
 	}
 
 }

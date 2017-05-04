@@ -25,7 +25,7 @@ public class testBajaContacto {
 	Contactos_Dao contacto;
 
 	@Test
-	public void bajaTecno() {
+	public void bajaContacto() {
 		long inicio = Contactos.countContactoses();
 		LOG.info("\n Hay " + inicio + " contactos");
 		contacto.bajaContactos(new BigDecimal(93), "hotmail", "c3po@hotmail.es");

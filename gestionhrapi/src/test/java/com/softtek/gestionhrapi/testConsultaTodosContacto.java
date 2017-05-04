@@ -21,7 +21,7 @@ public class testConsultaTodosContacto {
 	Contactos_Dao contactos;
 
 	@Test
-	public void ConsultaTecno() {
+	public void ConsultaContactos() {
 		List<Contactos> lista = contactos.consultarTodosContactos();
 		System.out.println(lista.size());
 		Assert.assertNotNull(lista.size());

@@ -28,7 +28,7 @@ public class testAltaContacto {
 	public void altaContacto() {
 		long inicio = Contactos.countContactoses();
 		LOG.info("\n Cantidad de contactos: " + inicio);
-		contacto.altaContactos(new BigDecimal(74), "Facebook", "hola@hotmail.es");
+		contacto.altaContactos(new BigDecimal(98), "Facebook", "hola@hotmail.es");
 		long fin = Contactos.countContactoses();
 		LOG.info("\n Cantidad de contactos: " + fin);
 		Assert.assertEquals(fin, inicio + 1);
