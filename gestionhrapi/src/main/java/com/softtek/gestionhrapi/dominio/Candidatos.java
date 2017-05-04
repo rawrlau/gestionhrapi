@@ -19,11 +19,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import org.springframework.roo.addon.dbre.RooDbManaged;
-import org.springframework.roo.addon.entity.RooEntity;
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.tostring.RooToString;
-
 @RooJavaBean
 @RooToString
 @RooEntity(versionField = "", table = "CANDIDATOS", schema = "FORMACION")
@@ -58,5 +53,4 @@ public class Candidatos {
 	public Set<Contactos> getContactoss() {
 		return this.contactoss;
 	}
-
 }

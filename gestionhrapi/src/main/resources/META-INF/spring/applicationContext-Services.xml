@@ -65,6 +65,7 @@
     <jaxrs:server id="restServer" address="/rest">
         <jaxrs:serviceBeans>
             <ref bean="candidatosDAOImpl"/>
+            <ref bean="solicitudesImplementacion"/>
         </jaxrs:serviceBeans>
         <jaxrs:providers>
             <bean class="com.bbva.jee.arq.spring.core.gce.ExcepcionAplicacionMapper"/>

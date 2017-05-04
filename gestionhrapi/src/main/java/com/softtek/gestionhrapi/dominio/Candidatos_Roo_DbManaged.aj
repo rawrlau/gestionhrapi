@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Candidatos_Roo_DbManaged {
-    
+
     @Column(name = "NOMBRE", length = 50)
     @NotNull
     private String Candidatos.nombre;
