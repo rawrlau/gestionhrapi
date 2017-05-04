@@ -11,8 +11,5 @@ buildNumber.properties
 .project
 .settings/
 *.log
-<<<<<<< HEAD
 *.roo
-=======
-*.roo
->>>>>>> 5f0c36ca10bd28b39f419ef5cea21f3b88927a18
+
