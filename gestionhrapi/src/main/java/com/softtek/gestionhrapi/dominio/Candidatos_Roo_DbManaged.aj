@@ -14,6 +14,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Candidatos_Roo_DbManaged {
 
+
     @Column(name = "NOMBRE", length = 50)
     @NotNull
     private String Candidatos.nombre;
@@ -90,6 +91,7 @@ privileged aspect Candidatos_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date Candidatos.fechaActualizado;
     
+
     public String Candidatos.getNombre() {
         return this.nombre;
     }

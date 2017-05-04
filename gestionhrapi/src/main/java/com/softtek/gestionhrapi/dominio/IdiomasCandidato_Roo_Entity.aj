@@ -76,10 +76,6 @@ privileged aspect IdiomasCandidato_Roo_Entity {
         return em;
     }
     
-    public static long IdiomasCandidato.countIdiomasCandidatoes() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM IdiomasCandidato o", Long.class).getSingleResult();
-    }
-    
     public static List<IdiomasCandidato> IdiomasCandidato.findAllIdiomasCandidatoes() {
         return entityManager().createQuery("SELECT o FROM IdiomasCandidato o", IdiomasCandidato.class).getResultList();
     }

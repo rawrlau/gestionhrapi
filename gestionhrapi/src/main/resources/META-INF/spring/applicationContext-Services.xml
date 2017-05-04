@@ -60,12 +60,14 @@
 		</property>
 		<property name="bus" ref="cxf"/>
 	</bean>
-	
+
 	<!-- JAX-RS Service -->
     <jaxrs:server id="restServer" address="/rest">
         <jaxrs:serviceBeans>
-            <ref bean="candidatosDAOImpl"/>
-            <ref bean="solicitudesImplementacion"/>
+            <ref bean="contactoimpl"/>
+            <ref bean="tecnologias_Daoimpl"/>
+            <ref bean="idiomaImpl"/>
+
         </jaxrs:serviceBeans>
         <jaxrs:providers>
             <bean class="com.bbva.jee.arq.spring.core.gce.ExcepcionAplicacionMapper"/>
@@ -82,5 +84,4 @@
             <entry key="html" value="text/html"/>
         </jaxrs:extensionMappings>
     </jaxrs:server>
-
 </beans>

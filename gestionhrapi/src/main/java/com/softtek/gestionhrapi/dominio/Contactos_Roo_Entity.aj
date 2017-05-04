@@ -76,10 +76,7 @@ privileged aspect Contactos_Roo_Entity {
         return em;
     }
     
-    public static long Contactos.countContactoses() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM Contactos o", Long.class).getSingleResult();
-    }
-    
+
     public static List<Contactos> Contactos.findAllContactoses() {
         return entityManager().createQuery("SELECT o FROM Contactos o", Contactos.class).getResultList();
     }

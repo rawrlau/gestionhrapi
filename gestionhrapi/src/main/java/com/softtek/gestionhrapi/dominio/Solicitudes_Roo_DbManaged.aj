@@ -3,6 +3,7 @@
 
 package com.softtek.gestionhrapi.dominio;
 
+
 import java.lang.String;
 import java.util.Date;
 import javax.persistence.Column;
@@ -11,7 +12,6 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Solicitudes_Roo_DbManaged {
-
     @Column(name = "NOMBRE", length = 50)
     private String Solicitudes.nombre;
     
@@ -49,7 +49,6 @@ privileged aspect Solicitudes_Roo_DbManaged {
     
     @Column(name = "ESTADO", length = 20)
     private String Solicitudes.estado;
-    
     public String Solicitudes.getNombre() {
         return this.nombre;
     }
@@ -130,6 +129,7 @@ privileged aspect Solicitudes_Roo_DbManaged {
         this.ingles = ingles;
     }
     
+
     public String Solicitudes.getConsultorasContactadas() {
         return this.consultorasContactadas;
     }

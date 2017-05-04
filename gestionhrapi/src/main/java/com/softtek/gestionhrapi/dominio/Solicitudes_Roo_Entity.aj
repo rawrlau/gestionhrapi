@@ -5,6 +5,7 @@ package com.softtek.gestionhrapi.dominio;
 
 import com.softtek.gestionhrapi.dominio.Solicitudes;
 import java.math.BigDecimal;
+
 import java.util.List;¡
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;¡
@@ -21,6 +22,7 @@ privileged aspect Solicitudes_Roo_Entity {
     @PersistenceContext
     transient EntityManager Solicitudes.entityManager;
     
+
     @Transactional
     public void Solicitudes.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();

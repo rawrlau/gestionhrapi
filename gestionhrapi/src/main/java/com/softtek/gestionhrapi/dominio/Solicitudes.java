@@ -17,6 +17,7 @@ import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
 
+
 //RooJavaBean se encarga de generar los get y set de los atributos.
 @RooJavaBean
 // RooToString se encarga de generar un toString() con los atributos.

@@ -21,6 +21,7 @@ privileged aspect Candidatos_Roo_Entity {
     @PersistenceContext
     transient EntityManager Candidatos.entityManager;
     
+
     @Transactional
     public void Candidatos.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();

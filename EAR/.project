@@ -1,0 +1,9 @@
+<projectDescription>
+  <name>gehr_mult_web</name>
+  <comment>pom-padre-frontend Versión de Arquitectura Spring 1.15.5. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects>
+    <project>gehr_mult_web_gestionhrapi_01</project>
+  </projects>
+  <buildSpec/>
+  <natures/>
+</projectDescription>
