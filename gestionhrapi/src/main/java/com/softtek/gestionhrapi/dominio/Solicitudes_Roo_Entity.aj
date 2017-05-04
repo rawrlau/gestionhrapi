@@ -6,9 +6,9 @@ package com.softtek.gestionhrapi.dominio;
 import com.softtek.gestionhrapi.dominio.Solicitudes;
 import java.math.BigDecimal;
 
-import java.util.List;¡
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;¡
+import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 import org.springframework.transaction.annotation.Transactional;
