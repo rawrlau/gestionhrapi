@@ -6,12 +6,8 @@ package com.softtek.gestionhrapi.dominio;
 import com.softtek.gestionhrapi.dominio.Candidatos;
 import java.math.BigDecimal;
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,19 +20,6 @@ privileged aspect Candidatos_Roo_Entity {
     
     @PersistenceContext
     transient EntityManager Candidatos.entityManager;
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_CANDIDATO")
-    private BigDecimal Candidatos.idCandidato;
-    
-    public BigDecimal Candidatos.getIdCandidato() {
-        return this.idCandidato;
-    }
-    
-    public void Candidatos.setIdCandidato(BigDecimal id) {
-        this.idCandidato = id;
-    }
     
     @Transactional
     public void Candidatos.persist() {

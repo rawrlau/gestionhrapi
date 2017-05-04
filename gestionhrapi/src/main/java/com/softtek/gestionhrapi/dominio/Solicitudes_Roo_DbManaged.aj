@@ -11,7 +11,7 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Solicitudes_Roo_DbManaged {
-    
+
     @Column(name = "NOMBRE", length = 50)
     private String Solicitudes.nombre;
     

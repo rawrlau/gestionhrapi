@@ -64,6 +64,7 @@
 	<!-- JAX-RS Service -->
     <jaxrs:server id="restServer" address="/rest">
         <jaxrs:serviceBeans>
+            <ref bean="candidatosDAOImpl"/>
             <ref bean="solicitudesImplementacion"/>
         </jaxrs:serviceBeans>
         <jaxrs:providers>

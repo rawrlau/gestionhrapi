@@ -12,7 +12,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
 import org.springframework.roo.addon.dbre.RooDbManaged;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -79,5 +78,4 @@ public class Solicitudes {
 	public void setGuardias(String guardias) {
 		this.guardias = guardias;
 	}
-
 }
