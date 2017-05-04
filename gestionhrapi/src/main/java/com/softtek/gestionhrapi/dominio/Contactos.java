@@ -1,5 +1,10 @@
 package com.softtek.gestionhrapi.dominio;
 
+import java.math.BigDecimal;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 import org.springframework.roo.addon.dbre.RooDbManaged;
 import org.springframework.roo.addon.entity.RooEntity;
