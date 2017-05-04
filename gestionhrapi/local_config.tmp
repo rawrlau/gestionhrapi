@@ -1,5 +1,5 @@
 #
-#Fri Apr 28 09:22:36 CEST 2017
+#Thu May 04 10:59:26 CEST 2017
 VAR.SERVICIOTRANSACCIONES.CONFIGURACION.GRABACION=false
 arqspring.mock.mockescritorio.contexto.puesto.info.puestoFisicoEscritorio=
 servicioTransacciones.configuracion.protocolo.elara.puesto=0
@@ -22,7 +22,7 @@ VAR.SERVICIOTRANSACCIONES.CONFIGURACION.TRANSPORTE.CONFIG_TRANSPORTE_MQ.MANAGER=
 servicioTransacciones.configuracion.protocolo.ps9.usuarioMayusculas=false
 com.bbva.jee.arq.spring.core.aplicacion.canal=web
 arqspring.mock.mockescritorio.contexto.datosTecnicos.UUAARemitente=
-VAR.CATEGORY.COM.SOFTTEK.GESTIONHRAPI=TRACE,LOGFILE,STDOUT
+VAR.CATEGORY.COM.SOFTTEK.GESTIONHRAPI=INFO,LOGFILE,STDOUT
 VAR.CATEGORY.COM=TRACE,LOGFILE,STDOUT
 VAR.APPENDER.AUDITORIA-DIARIO-ERRORES.FILE=/W\:/Desarrollo/gehr/online/multipais/web/logs/gehr_gestionhrapi_01_diario_errores${sys\:cloneId}.txt
 arqspring.mock.proxy.activado=false

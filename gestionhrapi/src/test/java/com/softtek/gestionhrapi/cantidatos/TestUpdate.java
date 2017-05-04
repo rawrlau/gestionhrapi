@@ -25,15 +25,14 @@ public class TestUpdate {
 
 	private Candidatos candidato;
 	private BigDecimal idCandidato, expectEconomica;
-	private String nombre, apellidos, provincia, perfil, posicion, experiencia,
-			dispViajar, dispResidencia, dispIncorporacion, expectContractual,
-			feedbackSourcing, feedbackTecnico, tecnicoSeleccion, referenciado,
+	private String nombre, apellidos, provincia, perfil, posicion, experiencia, dispViajar, dispResidencia,
+			dispIncorporacion, expectContractual, feedbackSourcing, feedbackTecnico, tecnicoSeleccion, referenciado,
 			estado, cvSofttek, cvPersonal;
 	private Date fechaEntrevista, fechaContacto, fechaActualizado;
 
 	@Before
 	public void init() throws GestionHrException {
-		idCandidato = new BigDecimal(36);
+		idCandidato = new BigDecimal(101);
 		nombre = "Zidane";
 		apellidos = "Martín";
 		provincia = "Cáceres";

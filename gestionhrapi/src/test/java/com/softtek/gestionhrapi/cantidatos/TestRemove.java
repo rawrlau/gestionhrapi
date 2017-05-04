@@ -30,7 +30,7 @@ public class TestRemove {
 		long antes = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos ANTES: " + antes);
 
-		candidatoDAO.deleteCandidato(new BigDecimal(46));
+		candidatoDAO.deleteCandidato(new BigDecimal(103));
 
 		long despues = Candidatos.countCandidatoses();
 		System.out.println("Número de candidatos DESPUÉS: " + despues);

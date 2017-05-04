@@ -13,7 +13,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import org.springframework.roo.addon.dbre.RooDbManaged;
@@ -27,6 +30,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooDbManaged(automaticallyDelete = true)
 @XmlRootElement(name = "candidatos", namespace = "candidatos")
 @XmlType(name = "candidatos", namespace = "candidatos")
+@XmlAccessorType(value = XmlAccessType.FIELD)
 public class Candidatos {
 
 	@Id
@@ -44,9 +48,15 @@ public class Candidatos {
 	private Set<Tecnologias> tecnologiass1;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idCandidato")
+	@XmlTransient
 	private Set<Contactos> contactoss;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idCandidato")
+	@XmlTransient
 	private Set<IdiomasCandidato> idiomasCandidatoes;
+
+	public Set<Contactos> getContactoss() {
+		return this.contactoss;
+	}
 
 }

@@ -23,7 +23,7 @@ public class TestRead {
 
 	@Test
 	public void testConsultaCandidatoOk() throws GestionHrException {
-		Candidatos candidato = candidatoDAO.readCandidato(new BigDecimal(19));
+		Candidatos candidato = candidatoDAO.readCandidato(new BigDecimal(101));
 		System.out.println(candidato.toString());
 		Assert.assertNotNull(candidato);
 	}
@@ -31,5 +31,15 @@ public class TestRead {
 	@Test(expected = GestionHrException.class)
 	public void testConsultaCandidatoIdNull() throws GestionHrException {
 		Candidatos candidato = candidatoDAO.readCandidato(null);
+	}
+
+	@Test
+	public void testReadAllCandidatos() throws GestionHrException {
+		Assert.assertEquals(candidatoDAO.readAllCandidatos().size(), Candidatos.countCandidatoses());
+	}
+
+	@Test
+	public void testReadAllCandidatosLimit() throws GestionHrException {
+		Assert.assertEquals(candidatoDAO.readAllCandidatos(3).size(), 3);
 	}
 }

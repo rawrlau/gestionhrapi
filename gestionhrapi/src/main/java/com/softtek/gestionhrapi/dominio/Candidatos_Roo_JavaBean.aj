@@ -36,10 +36,6 @@ privileged aspect Candidatos_Roo_JavaBean {
         this.tecnologiass1 = tecnologiass1;
     }
     
-    public Set<Contactos> Candidatos.getContactoss() {
-        return this.contactoss;
-    }
-    
     public void Candidatos.setContactoss(Set<Contactos> contactoss) {
         this.contactoss = contactoss;
     }
