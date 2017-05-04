@@ -21,7 +21,7 @@ public interface SolicitudesInterfaz {
 
 	@PUT
 	@Path("/solicitud")
-	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Consumes({ MediaType.APPLICATION_JSON })
 	public void altaSolicitudCompleta(Solicitudes solicitud);
 
 	@POST
@@ -36,11 +36,11 @@ public interface SolicitudesInterfaz {
 
 	@GET
 	@Path("/solicitud/{idSolicitud}")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN })
+	@Produces({ MediaType.APPLICATION_JSON })
 	public Solicitudes getSolicitud(@PathParam("idSolicitud") BigDecimal idSolicitud) throws GestionhrException;
 
 	@GET
 	@Path("/solicitud/lista")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN })
+	@Produces({ MediaType.APPLICATION_JSON })
 	public List<Solicitudes> getListaSolicitudes() throws GestionhrException;
 }
