@@ -12,8 +12,10 @@ import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bbva.jee.arq.spring.core.log.I18nLog;
 import com.bbva.jee.arq.spring.core.log.I18nLogFactory;
@@ -33,6 +35,7 @@ import com.softtek.gestionhrapi.interfaz.SolicitudesInterfaz;
  * proceso de confirmar todas las instrucciones en bloque una vez hemos visto
  * que no se ha producido ningún error se le llama hacer un commit.
  */
+@Transactional
 public class TestProyecto {
 
 	private final I18nLog LOG = I18nLogFactory.getLogI18n(Solicitudes.class);
@@ -83,7 +86,7 @@ public class TestProyecto {
 
 	}
 
-	@Test
+	@Test(expected = JpaSystemException.class)
 	public void testAltaSolicitudesCompletaError() {
 
 		LOG.info("======== Alta de solicitud Error (Test)========");
@@ -112,8 +115,8 @@ public class TestProyecto {
 
 		long numDespuesAlta = solicitudDao.countSolicitudes();
 		LOG.debug("Numero de solicitudes despues del alta (Test): " + numDespuesAlta);
-		LOG.info("=============================================");
-		LOG.info("");
+		LOG.debug("=============================================");
+		LOG.debug("");
 
 		assertEquals(numAntesAlta, numDespuesAlta);
 
