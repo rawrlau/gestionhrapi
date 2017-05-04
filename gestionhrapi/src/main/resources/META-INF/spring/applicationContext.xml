@@ -53,7 +53,12 @@
         <context:exclude-filter expression=".*_Roo_.*" type="regex"/>
         <context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
     </context:component-scan>
-    
+
+    <!-- Encontrar la clase sin @Component
+    <bean class="com.softtek.gestionhrapi.Maestros" id="maestros1"/>
+    <bean class="com.softtek.gestionhrapi.Maestros" id="maestros2"/>
+     -->
+
     
     
     
